@@ -6,7 +6,6 @@ class Department extends Component {
     super(props);
     this.state = {
       data: [],
-      select: props.select
     };
   }
 
@@ -17,18 +16,11 @@ class Department extends Component {
   }
 
   render() {
-    let select;
-    if (this.state.select ) {
-      select = this.state.select;
-    } else {
-      select =false;
-    }
-    console.log(select);
+   
     return (
       <select
         className="select"
         name="category_id"
-        defaultValue={select}
       >
         {this.state.data.map(department => (
           <option value={department.id} key={department.id}>

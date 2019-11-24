@@ -8,7 +8,6 @@ class addCategory extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  
   handleSubmit(event) {
     event.preventDefault();
     let formData = new FormData(event.target),
@@ -41,7 +40,7 @@ class addCategory extends Component {
           <option value="true">Есть</option>
           <option value="false">Скрыта</option>
         </select>
-        <Department/>
+        <Department />
         <button className="addCategoryBtn">Добавить</button>
       </form>
     );
