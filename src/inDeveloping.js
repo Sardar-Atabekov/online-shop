@@ -6,7 +6,7 @@ class Department extends Component {
     return (
       <div  style={{ color: "red", margin: "40px 600px" }}>
         <h1>
-          Page in Developing
+          Page in Developing.
         </h1>
         <h2><Link to={"/admin/departments"} className="categories">
         to Home Page
