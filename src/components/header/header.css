@@ -1,0 +1,69 @@
+.header_top {
+  width: 100%;
+  height: 30px;
+  background-color: #fff;
+}
+
+.header_top_link {
+  font-weight: 600;
+  color: #000;
+}
+
+.header_tel {
+  font-weight: 600;
+
+}
+
+.header_top_link:hover {
+  color: #2d2d2d;
+  text-decoration: none;
+
+}
+
+.header {
+  background-color: #2d2d2d;
+  width: 100%;
+  height: 60px;
+}
+
+.header_logo {
+  width: 130px;
+  height: 60px;
+  line-height: 80px;
+
+}
+
+.header_link {
+  color: #fff;
+  text-decoration: none;
+  line-height: 60px;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.header_link:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+.header_link_block {
+
+  border-left: 0.5px solid rgb(255, 255, 255, 0.5);
+
+
+}
+
+.header_input {
+  width: 100%;
+  height: 35px;
+  border-radius: 20px;
+  margin-top: 10px;
+  border: none;
+  padding-left: 20px;
+}
+
+.header_icons {
+  width: 100%;
+  height: 100%;
+}
