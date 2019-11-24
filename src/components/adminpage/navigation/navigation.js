@@ -10,38 +10,38 @@ class Navigation extends Component {
         <Link to={"/admin"}>
           <img src={neobisLogo} className="neobis_logo" alt="neobisLogo" />
         </Link>
-        <Link to={"/traffic"} className="categories">
+        <Link to={"/admin/traffic"} className="categories">
         Analytics
         </Link>
-        <Link to={"/sales"} className="categories">
+        <Link to={"/admin/sales"} className="categories">
         Online Store
-        </Link>
-        {/* <Link to={"/kitchen"} className="categories">
+    </Link>
+        {/* <Link to={"/admin/kitchen"} className="categories">
           Kitchen
         </Link>
-        <Link to={"/bar"} className="categories">
+        <Link to={"/admin/bar"} className="categories">
           Bar
         </Link> */}
-        <Link to={"/transactions"} className="categories">
+        <Link to={"/admin/transactions"} className="categories">
           История транзакции
         </Link>
-        <Link to={"/users"} className="categories">
+        <Link to={"/admin/users"} className="categories">
           Пользователи
         </Link>
-        <Link to={"/departments"} className="categories">
+        <Link to={"/admin/departments"} className="categories">
           Департаменты
         </Link>
-        <Link to={"/category"} className="categories">
+        <Link to={"/admin/category"} className="categories">
           Категории
         </Link>
-        <Link to={"/meals"} className="categories">
+        <Link to={"/admin/meals"} className="categories">
           Список товаров
         </Link>
 
-        <Link to={"/tables"} className="categories">
+        <Link to={"/admin/tables"} className="categories">
           Столы
         </Link>
-        <Link to={"/meals"} className="categories">
+        <Link to={"/admin/meals"} className="categories">
           Бронирования
         </Link>
       </nav>

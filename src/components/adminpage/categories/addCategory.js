@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { postData } from "../../requests";
-
+import Department from "../blocks/Department";
 class addCategory extends Component {
   constructor(props) {
     super(props);
@@ -8,6 +8,7 @@ class addCategory extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  
   handleSubmit(event) {
     event.preventDefault();
     let formData = new FormData(event.target),
@@ -17,33 +18,30 @@ class addCategory extends Component {
       data[key] = value;
     });
     console.log(data);
-    postData("/category/", data);
+    postData("/subCategory/", data);
     event.target.reset();
   }
 
   render() {
-    let { data } = this.state;
-    console.log(data);
     return (
-      <form className="wrapper">
+      <form onSubmit={this.handleSubmit}>
         <input
           type="text"
           className="addCategory"
           placeholder="Названия категории"
+          name="name"
         />
         <input
           type="text"
           className="addCategory"
+          name="image"
           placeholder="Ссылка изображении"
         />
         <select className="select" name="active">
           <option value="true">Есть</option>
           <option value="false">Скрыта</option>
         </select>
-        <select className="select" name="category_id">
-          <option value="0">Кухня</option>
-          <option value="1">Бар</option>
-        </select>
+        <Department/>
         <button className="addCategoryBtn">Добавить</button>
       </form>
     );

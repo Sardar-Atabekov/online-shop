@@ -3,9 +3,10 @@ import { getData, postData, putData, deleteData } from "../../requests";
 import Navigation from "../navigation/navigation";
 import Search from "../search/search.js";
 import Footer from "../footer/footer.js";
+import Category from "./addCategory";
+import Department from "../blocks/Department";
 
-// import "./category.css";
-
+import "./categories.css";
 
 class Categories extends Component {
   constructor(props) {
@@ -20,7 +21,6 @@ class Categories extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-
   handleSubmit(event) {
     event.preventDefault();
     let formData = new FormData(event.target),
@@ -34,8 +34,6 @@ class Categories extends Component {
     event.target.reset();
   }
 
-  
-
   changeTableClick(event) {
     let id = event.target.getAttribute("id"),
       data = {
@@ -48,8 +46,6 @@ class Categories extends Component {
     console.log(data);
     putData(`/Categories/${id}`, data);
   }
-
-  
 
   changeSelectDepartment(event) {
     let select = event.target.value;
@@ -65,14 +61,14 @@ class Categories extends Component {
     }
   }
   async componentDidMount() {
-    getData("https://neobiscrmfood.herokuapp.com/api/Categories").then(body => {
+    getData("/subCategory/all/").then(body => {
       this.setState({ body });
     });
   }
 
   render() {
     let data = this.state.data.length > 0 ? this.state.data : this.state.body;
-
+    console.log(data);
     return (
       <div className="wrapper">
         <aside className="navBlock">
@@ -84,7 +80,7 @@ class Categories extends Component {
           </header>
           <main className="categoriesContent">
             <div className="addCategories">
-              
+              <Category />
               <div className="selectDepartment">
                 <label htmlFor="department">По департаментам: </label>
                 <select
@@ -99,26 +95,33 @@ class Categories extends Component {
               </div>
             </div>
             <div className="listItem">
-              {data.map(item => (
-                <div className="item" key={item.id}>
-                  <img src={item.image} alt={item.category} />
+              {data.map(category => (
+                <div className="item" key={category.id}>
+                  <img src={category.image} alt={category.name} />
                   <input
                     type="text"
                     className="input"
-                    defaultValue={item.category}
+                    defaultValue={category.name}
                   />
                   <select
                     id="name"
                     className="select"
                     name="name"
-                    defaultValue={item.departmentId}
+                    defaultValue={category.active}
                   >
-                    <option value="0">Кухня</option>
-                    <option value="1">Бар</option>
+                    <option value="true">Есть</option>
+                    <option value="false">Скрыта</option>
                   </select>
                   <input
+                    name="image"
+                    type="text"
+                    className="input"
+                    defaultValue={category.image}
+                  />
+                  <Department select={category.category_id}/>
+                  <input
                     type="button"
-                    id={item.id}
+                    id={category.id}
                     className="changeBtn"
                     onClick={this.changeTableClick}
                     value="Изменить"
@@ -128,7 +131,7 @@ class Categories extends Component {
                     className="deleteBtn"
                     value="Удалить"
                     onClick={event => {
-                      deleteData(`/Categories/${item.id}`);
+                      deleteData(`/subCategory/${category.id}`);
                       event.target.parentNode.remove();
                     }}
                   />
