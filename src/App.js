@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
-// import ClothesPage from "./components/clothesPage/clothes.js";
 import Departments from './components/adminpage/departament/departments';
 import Categories from './components/adminpage/categories/categories';
 import inDeveloping from './inDeveloping.js';
 // import ClothInfo from "./container/cloth-info";
-// import Catalog from "./container/catalog-page/components/catalog-page-component";
 // import Cart from './container/card/';
 class App extends Component {
   render() {
