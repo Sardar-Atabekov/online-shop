@@ -9,7 +9,8 @@ class Departments extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: [],
+      realData: []
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -23,6 +24,9 @@ class Departments extends Component {
       data[key] = value;
     });
     postData("/category/", data);
+    let arr = this.state.data;
+    arr.push(data);
+    this.setState({ data: arr });
     event.target.reset();
   }
 
@@ -43,6 +47,7 @@ class Departments extends Component {
   }
 
   render() {
+    let data =this.state.data;
     return (
       <div className="wrapper">
         <aside className="navBlock">
@@ -63,7 +68,7 @@ class Departments extends Component {
             </form>
 
             <div className="listItem">
-              {this.state.data.map(item => (
+              {data.map(item => (
                 <div className="item" key={item.id}>
                   <input type="text" className="add" defaultValue={item.name} />
                   <select
