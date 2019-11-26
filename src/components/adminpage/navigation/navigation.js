@@ -34,7 +34,7 @@ class Navigation extends Component {
         <Link to={"/admin/category"} className="categories">
           Категории
         </Link>
-        <Link to={"/admin/meals"} className="categories">
+        <Link to={"/admin/products"} className="categories">
           Список товаров
         </Link>
 

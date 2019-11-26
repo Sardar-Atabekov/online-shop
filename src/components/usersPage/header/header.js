@@ -2,10 +2,11 @@ import React from "react";
 import "./header.css";
 import { Link } from "react-router-dom";
 // import 'bootstrap/dist/css/bootstrap.min.css';
-import shopLogo from "./img/e-shop(logo).svg";
-import Person from "./img/Person.svg";
-import Heart from "./img/l.svg";
-import Cart from "./img/pocket.svg";
+
+import Eshoplogo from "./img/e-shop(logo).svg";
+import Person from "./img/Person.svg"
+import Heart from "./img/l.svg"
+import Cart from "./img/pocket.svg"
 
 
 const Header = () => {
@@ -40,7 +41,7 @@ const Header = () => {
         <div className="container row">
           <div className="col-2">
             <Link to="/" className="header_link">
-              <img src={shopLogo} alt="logo" className="header_logo" />
+              <img src={Eshoplogo} alt="logo" className="header_logo" />
             </Link>
           </div>
 

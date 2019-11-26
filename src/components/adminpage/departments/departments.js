@@ -53,7 +53,7 @@ class Departments extends Component {
         <aside className="navBlock">
           <Navigation />
         </aside>
-        <div className="container">
+        <div className="containerAdmin">
           <header className="main-search">
             <Search />
           </header>
