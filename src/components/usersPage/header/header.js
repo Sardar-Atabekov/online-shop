@@ -1,17 +1,32 @@
 import React from "react";
-import "./header.css";
+import { getData } from "../../requests.js";
+
 import { Link } from "react-router-dom";
-// import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Eshoplogo from "./img/e-shop(logo).svg";
-import Person from "./img/Person.svg"
-import Heart from "./img/l.svg"
-import Cart from "./img/pocket.svg"
+import Person from "./img/Person.svg";
+import Heart from "./img/l.svg";
+import Cart from "./img/pocket.svg";
+import "./header.css"; 
 
 
-const Header = () => {
-  return (
-    <header>
+class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: [],
+    };
+  }
+  
+  async componentDidMount() {
+    getData(`/category/all`).then(data => {
+      this.setState({ data });
+    });
+  }
+
+  render() {
+    return (
+      <header>
       <div className="header_top">
         <div className="container row">
           <div className="col-3 offset-2 row ">
@@ -75,6 +90,12 @@ const Header = () => {
         </div>
       </div>
     </header>
-  );
-};
+  
+    );
+  }
+}
+
+
 export default Header;
+
+

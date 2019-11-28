@@ -1,0 +1,69 @@
+.catalog{
+  width: 100%;
+  min-height:450px;
+  background:url("../img/bacground.jpg")no-repeat  ;
+  background-size:cover;
+  margin: 0 auto;
+}
+
+
+.catalog_img{
+  width: 100%;
+  height: 75%;
+}
+.catalog_title{
+  margin-top: 2%;
+  margin-bottom: 2%;
+  color: #fff;
+  font-weight: bold;
+}
+.catalog_block{
+  margin: 0 auto;
+}
+.catalog_text_block{
+  background-color: #fff;
+  width: 100%;
+  height: 50px;
+}
+.catalog_text{
+  font-weight: bold;
+  line-height: 45px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+font-family:"arial";
+}
+.catalog-btn{
+  margin: 0 auto;
+  font-weight: bold;
+  margin-bottom: 2%;
+  margin-top: 2%;
+   font-size: 1rem;
+font-family:"arial";
+}
+
+.seasons_title{
+  margin-top: 2%;
+  margin-bottom: 2%;
+  text-transform: uppercase;
+}
+.seasons_text_block{
+  background-color: #000;
+}
+.seasons_text{
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+    font-size: 1rem;
+font-family:"arial";
+
+}
+.seasons-btn{
+  margin: 0 auto;
+  font-weight: bold;
+  margin-bottom: 2%;
+  margin-top: 2%;
+   font-size: 1rem;
+font-family:"arial";
+background-color: #000;
+
+}

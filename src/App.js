@@ -23,7 +23,7 @@ class App extends Component {
           {/* <Route exact path="/product/:id" component={ClothInfo} /> */}
           {/* <Route exact path="/basket" component={Cart} /> */}
           <Route exact path="/admin/products" component={Products} />
-          <Route exact path="/department" component={Department} />
+          <Route exact path="/department/:id" component={Department} />
 
 
           <Route exact path="*" component={inDeveloping} />
