@@ -1,4 +1,4 @@
-.usersPage .container {
+.containerUsers {
     display: flex;
     flex-direction: column;
 }

@@ -3,13 +3,13 @@ import { getData } from "../../requests.js";
 
 // import { Link } from "react-router-dom";
 
-import "./catalog.css";
-import catalogImg from "./img/catalog1.jpg";
-import catalogImg2 from "./img/catalog2.jpg";
-import catalogImg3 from "./img/catalog3.jpg";
-import catalogImg4 from "./img/catalog4.jpg";
-import catalogImg5 from "./img/catalog5.jpg";
-import catalogImg6 from "./img/catalog6.jpg";
+// import "./catalog.css";
+// import catalogImg from "./img/catalog1.jpg";
+// import catalogImg2 from "./img/catalog2.jpg";
+// import catalogImg3 from "./img/catalog3.jpg";
+// import catalogImg4 from "./img/catalog4.jpg";
+// import catalogImg5 from "./img/catalog5.jpg";
+// import catalogImg6 from "./img/catalog6.jpg";
 
 export default class CatalogPageComponent extends React.Component {
   constructor(props) {
@@ -18,11 +18,9 @@ export default class CatalogPageComponent extends React.Component {
       data: [],
     };
   }
-
+  
   async componentWillMount() {
-    let id = this.props.id;
-    console.log(id);
-    getData(`/category/${id}`).then(data => {
+    getData(`/category/${this.props.id}`).then(data => {
       this.setState({ data });
     });
   }

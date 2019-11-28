@@ -1,29 +1,37 @@
 .catalog{
   width: 100%;
   min-height:450px;
-  background:url("../img/bacground.jpg")no-repeat  ;
+  background:url("./img/bacground.jpg")no-repeat  ;
   background-size:cover;
   margin: 0 auto;
 }
 
-
+.catalog_items_wrapper {
+  width: 90%;
+}
 .catalog_img{
   width: 100%;
-  height: 75%;
+  height: 85%;
 }
 .catalog_title{
   margin-top: 2%;
   margin-bottom: 2%;
   color: #fff;
+  text-align: center;
+  flex: 0 0 100%;
+  max-width: 100%;
   font-weight: bold;
+  font-size: 1.75rem;
 }
 .catalog_block{
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: 260px;
 }
 .catalog_text_block{
   background-color: #fff;
   width: 100%;
-  height: 50px;
 }
 .catalog_text{
   font-weight: bold;
@@ -40,11 +48,15 @@ font-family:"arial";
    font-size: 1rem;
 font-family:"arial";
 }
-
+.containerUsers {
+  display: flex;
+  flex-direction: column;
+}
 .seasons_title{
-  margin-top: 2%;
+  margin-top: 0;
   margin-bottom: 2%;
   text-transform: uppercase;
+
 }
 .seasons_text_block{
   background-color: #000;
@@ -66,4 +78,13 @@ font-family:"arial";
 font-family:"arial";
 background-color: #000;
 
+}
+
+.col-11 {
+  padding-right: 15px;
+    padding-left: 15px;
+}
+
+.catalog_text {
+  margin: 0px;
 }
