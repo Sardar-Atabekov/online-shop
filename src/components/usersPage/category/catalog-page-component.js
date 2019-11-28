@@ -18,32 +18,32 @@ export default class CatalogPageComponent extends React.Component {
       data: [],
     };
   }
-  
-  async componentDidMount() {
-    getData(`/category/${this.props.id}`).then(data => {
+
+  async componentWillMount() {
+    let id = this.props.id;
+    console.log(id);
+    getData(`/category/${id}`).then(data => {
       this.setState({ data });
     });
   }
 
   render() {
     return (
-      <div>
         <div className="catalog">
-          <div className="catalog_items_wrapper container row">
-            <h3 className=" catalog_title col-12">
-              Мы выбрали лучшие решения для того чтобы подчеркнуть Твой стиль!
-              <br />
-              Выбор за Тобой!
-            </h3>
-
-            <div className="catalog_block col-11 col-md-6 col-lg-2">
+          <h3 className="catalog_title col-12">
+            Мы выбрали лучшие решения для того чтобы подчеркнуть Твой стиль!
+            <br />
+            Выбор за Тобой!
+          </h3>
+          <div className="catalog_items_wrapper container">
+            <div className="catalog_block col-11">
               <img className="catalog_img" src={catalogImg} alt="catalog-img" />
               <div className="catalog_text_block">
                 <p className="catalog_text">джинсы</p>
               </div>
             </div>
 
-            <div className="catalog_block col-11 col-md-6 col-lg-2">
+            <div className="catalog_block col-11 ">
               <img
                 className="catalog_img"
                 src={catalogImg2}
@@ -54,7 +54,7 @@ export default class CatalogPageComponent extends React.Component {
               </div>
             </div>
 
-            <div className="catalog_block col-11 col-md-6 col-lg-2">
+            <div className="catalog_block col-11 ">
               <img
                 className="catalog_img"
                 src={catalogImg3}
@@ -65,20 +65,20 @@ export default class CatalogPageComponent extends React.Component {
               </div>
             </div>
 
-            <div className="catalog_block col-11 col-md-6 col-lg-2">
+            <div className="catalog_block col-11 ">
               {/* <Link to={`/catalog`}> */}
-                <img
-                  className="catalog_img"
-                  src={catalogImg4}
-                  alt="catalog-img"
-                />
+              <img
+                className="catalog_img"
+                src={catalogImg4}
+                alt="catalog-img"
+              />
               {/* </Link> */}
               <div className="catalog_text_block">
                 <p className="catalog_text">худи и джемперы</p>
               </div>
             </div>
 
-            <div className="catalog_block col-11 col-md-6 col-lg-2">
+            <div className="catalog_block col-11 ">
               <img
                 className="catalog_img"
                 src={catalogImg5}
@@ -89,7 +89,7 @@ export default class CatalogPageComponent extends React.Component {
               </div>
             </div>
 
-            <div className="catalog_block col-11 col-md-6 col-lg-2">
+            <div className="catalog_block col-11 ">
               <img
                 className="catalog_img"
                 src={catalogImg6}
@@ -99,10 +99,8 @@ export default class CatalogPageComponent extends React.Component {
                 <p className="catalog_text">классика и "кэжуал"</p>
               </div>
             </div>
-
           </div>
         </div>
-      </div>
     );
   }
 }
