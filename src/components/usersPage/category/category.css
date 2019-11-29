@@ -1,0 +1,50 @@
+.category .functions {
+  display: flex;
+  background: #E3E3E3;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  font-family: Sarala;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  /* identical to box height, or 71% */
+
+  letter-spacing: 0.2px;
+}
+
+
+
+.categoryProducts {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0px 150px;
+  margin-bottom: 150px;
+}
+
+.categoryProducts .product {
+  display: flex;
+  width: 17.5%;
+  margin: 10px 15px;
+  flex-direction: column;
+  background: #000000;
+
+}
+
+.categoryProducts .product img {
+  height: 300px;
+  padding: 5px;
+}
+
+.categoryProducts .product .product_text {
+  color: #ffffff;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  text-align: center;
+  line-height: 30px;
+  padding-bottom: 5px;
+}

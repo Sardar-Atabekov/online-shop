@@ -1,15 +1,8 @@
 import React, { Component } from "react";
+import {Link} from 'react-router-dom';
 import Header from "../header/header";
 import { getData } from "../../requests.js";
 import "./catalog.css";
-import catalogImg from "./img/catalog1.jpg";
-import catalogImg2 from "./img/catalog2.jpg";
-import catalogImg3 from "./img/catalog3.jpg";
-import catalogImg4 from "./img/catalog4.jpg";
-import catalogImg5 from "./img/catalog5.jpg";
-import catalogImg6 from "./img/catalog6.jpg";
-// import Category from "../category/catalog-page-component";
-// import "./departments.css";
 
 class Departments extends Component {
   constructor(props) {
@@ -19,13 +12,14 @@ class Departments extends Component {
     };
   }
   async componentDidMount() {
-    getData(`/category/${this.props.match.params.id}`).then(data => {
+    let id = this.props.match.params.id;
+    console.log(id);
+    getData(`/category/${id}`).then(data => {
       this.setState({ data });
     });
   }
   render() {
-    console.log(this.props.match.params.id);
-    console.log(this.state.data);
+    let {data} = this.state;
     return (
       <div className="usersPage">
         <div className="containerUsers">
@@ -37,69 +31,20 @@ class Departments extends Component {
             Выбор за Тобой!
           </h3>
           <div className="catalog_items_wrapper container">
+          {data.subCategories&&data.subCategories.map(item=>
+              <Link to={`/category/${item.id}`}  key={item.id}>
+
             <div className="catalog_block col-11">
-              <img className="catalog_img" src={catalogImg} alt="catalog-img" />
+              <img className="catalog_img" src={item.image} alt="catalog-img" />
+              {console.log(item)}
               <div className="catalog_text_block">
-                <p className="catalog_text">джинсы</p>
+                <p className="catalog_text">{item.name}</p>
               </div>
+              
             </div>
-
-            <div className="catalog_block col-11 ">
-              <img
-                className="catalog_img"
-                src={catalogImg2}
-                alt="catalog-img"
-              />
-              <div className="catalog_text_block">
-                <p className="catalog_text">обувь</p>
-              </div>
-            </div>
-
-            <div className="catalog_block col-11 ">
-              <img
-                className="catalog_img"
-                src={catalogImg3}
-                alt="catalog-img"
-              />
-              <div className="catalog_text_block">
-                <p className="catalog_text">куртки и жакеты</p>
-              </div>
-            </div>
-
-            <div className="catalog_block col-11 ">
-              {/* <Link to={`/catalog`}> */}
-              <img
-                className="catalog_img"
-                src={catalogImg4}
-                alt="catalog-img"
-              />
-              {/* </Link> */}
-              <div className="catalog_text_block">
-                <p className="catalog_text">худи и джемперы</p>
-              </div>
-            </div>
-
-            <div className="catalog_block col-11 ">
-              <img
-                className="catalog_img"
-                src={catalogImg5}
-                alt="catalog-img"
-              />
-              <div className="catalog_text_block">
-                <p className="catalog_text">футболки и майки</p>
-              </div>
-            </div>
-
-            <div className="catalog_block col-11 ">
-              <img
-                className="catalog_img"
-                src={catalogImg6}
-                alt="catalog-img"
-              />
-              <div className="catalog_text_block">
-                <p className="catalog_text">классика и "кэжуал"</p>
-              </div>
-            </div>
+            </Link>
+          )}
+            
           </div>
         </div>
         </div>

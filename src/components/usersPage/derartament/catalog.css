@@ -27,7 +27,8 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  height: 260px;
+  width: 210px;
+  height: 280px;
 }
 .catalog_text_block{
   background-color: #fff;

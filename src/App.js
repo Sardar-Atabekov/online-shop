@@ -6,7 +6,7 @@ import Categories from "./components/adminpage/categories/categories";
 import Products from "./components/adminpage/products/products";
 import inDeveloping from "./inDeveloping.js";
 import Department from "./components/usersPage/derartament/departament";
-
+import Category from './components/usersPage/category/category';
 
 // import ClothInfo from "./container/cloth-info";
 // import Cart from './container/card/';
@@ -24,6 +24,7 @@ class App extends Component {
           {/* <Route exact path="/basket" component={Cart} /> */}
           <Route exact path="/admin/products" component={Products} />
           <Route exact path="/department/:id" component={Department} />
+          <Route exact path="/category/:id" component={Category} />
 
 
           <Route exact path="*" component={inDeveloping} />
