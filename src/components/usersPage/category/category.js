@@ -39,7 +39,8 @@ export default class CatalogPageComponent extends React.Component {
           {data &&
             data.map(product => (
               <div key={product.id} className="product">
-                <img
+                {console.log(product)}
+                <img 
                   src="https://braggart24.ru/image/catalog/image/data/Evolution/2686/sinyaya-vysokokachestvennaya-kurtka-modeli-2686-1.jpg"
                   alt={product.name}
                 />

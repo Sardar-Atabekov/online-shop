@@ -1,6 +1,6 @@
 
 const API =
-  "https://cors-anywhere.herokuapp.com/https://my-demo-e-shop.herokuapp.com";
+  "https://my-demo-e-shop.herokuapp.com";
 
 async function getData(url) {
   try {
