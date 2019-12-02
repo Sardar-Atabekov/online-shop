@@ -1,7 +1,7 @@
 import React from "react";
 import { getData } from "../../requests.js";
 import Header from "./../header/header";
-import addBasket from "./../basket/addBasket";
+import AddBasket from "./../basket/addBasket";
 import "./product.css";
 
 export default class Product extends React.Component {
@@ -84,7 +84,7 @@ export default class Product extends React.Component {
                   </select>
                 </div>
               </div>
-              <button className="addBasket" onClick={()=>addBasket(product.id)}>Добавить в корзину</button>
+              <button className="addBasket" onClick={()=>AddBasket(product.id)}>Добавить в корзину</button>
             </div>
             {/* {data &&
             data.map(product => (
