@@ -1,5 +1,6 @@
 import React from "react";
 import { getData } from "../../requests.js";
+import { Link } from "react-router-dom";
 import Header from "./../header/header";
 import "./category.css";
 export default class CatalogPageComponent extends React.Component {
@@ -18,8 +19,6 @@ export default class CatalogPageComponent extends React.Component {
 
   render() {
     let { data } = this.state;
-    data = [...data, ...this.state.data];
-    console.log(data);
     return (
       <div className="category">
         <Header />
@@ -38,14 +37,24 @@ export default class CatalogPageComponent extends React.Component {
         <div className="categoryProducts">
           {data &&
             data.map(product => (
-              <div key={product.id} className="product">
+              <Link
+                key={product.id}
+                to={`/product/${product.id}`}
+                className="product"
+              >
                 {console.log(product)}
-                <img 
-                  src="https://braggart24.ru/image/catalog/image/data/Evolution/2686/sinyaya-vysokokachestvennaya-kurtka-modeli-2686-1.jpg"
-                  alt={product.name}
-                />
+                {product.productInfos[0] &&
+                product.productInfos[0].images[0] &&
+                product.productInfos[0].images[0].url ? (
+                  <img
+                    src={product.productInfos[0].images[0].url}
+                    alt={product.name}
+                  />
+                ) : (
+                  "false"
+                )}
                 <div className="product_text">{product.name}</div>
-              </div>
+              </Link>
             ))}
         </div>
       </div>
