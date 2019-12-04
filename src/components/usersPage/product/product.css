@@ -51,7 +51,7 @@
     display: flex;
     justify-content: center;
 }
-.select {
+.productPage .select {
     margin-left: 5px;
 }
 .form-group {

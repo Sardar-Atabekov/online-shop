@@ -1,6 +1,6 @@
 import React from "react";
 import { getData } from "../../../requests.js";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 import seasonImg1 from "./../img/season1.jpg";
 import seasonImg2 from "./../img/season2.jpg";

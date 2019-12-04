@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import "./App.css";
 import { Route, Switch } from "react-router-dom";
+import MainPage from './components/usersPage/mainPage/mainPage.js';
 import Departments from "./components/adminpage/departments/departments";
 import Categories from "./components/adminpage/categories/categories";
 import Products from "./components/adminpage/products/products";
@@ -8,26 +8,20 @@ import NotFound from "./components/404/404";
 import Department from "./components/usersPage/derartament/departament";
 import Category from './components/usersPage/category/category';
 import Product from "./components/usersPage/product/products";
-// import ClothInfo from "./container/cloth-info";
-// import Cart from './container/card/';
+import "./App.css";
+
 class App extends Component {
   render() {
     return (
       <React.Fragment>
         <Switch>
-          {/* <Route exact path="/" component={Catalog} /> */}
+          <Route exact path="/" component={MainPage} />
           <Route exact path="/admin/departments" component={Departments} />
           <Route exact path="/admin/category" component={Categories} />
-
-          {/* <Route exact path="/catalog" component={ClothesPage} /> */}
-          {/* <Route exact path="/product/:id" component={ClothInfo} /> */}
-          {/* <Route exact path="/basket" component={Cart} /> */}
           <Route exact path="/admin/products" component={Products} />
           <Route exact path="/department/:id" component={Department} />
           <Route exact path="/category/:id" component={Category} />
           <Route exact path="/product/:id" component={Product} />
-
-
           <Route exact path="*" component={NotFound} />
         </Switch>
       </React.Fragment>
