@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import Departments from "./components/adminpage/departments/departments";
 import Categories from "./components/adminpage/categories/categories";
 import Products from "./components/adminpage/products/products";
-import inDeveloping from "./inDeveloping.js";
+import NotFound from "./components/404/404";
 import Department from "./components/usersPage/derartament/departament";
 import Category from './components/usersPage/category/category';
 import Product from "./components/usersPage/product/products";
@@ -28,7 +28,7 @@ class App extends Component {
           <Route exact path="/product/:id" component={Product} />
 
 
-          <Route exact path="*" component={inDeveloping} />
+          <Route exact path="*" component={NotFound} />
         </Switch>
       </React.Fragment>
     );
