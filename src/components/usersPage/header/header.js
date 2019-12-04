@@ -24,7 +24,7 @@ class Header extends React.Component {
   }
 
   render() {
-    let data = this.state.data.filter(item => item.active);
+    let data = this.state.data && this.state.data.filter(item => item.active);
 
     return (
       <header>
@@ -65,7 +65,11 @@ class Header extends React.Component {
             <div className="departmentsLinks">
               {data &&
                 data.map(item => (
-                  <Link className="header_link" to={`/department/${item.id}`} key={item.id}>
+                  <Link
+                    className="header_link"
+                    to={`/department/${item.id}`}
+                    key={item.id}
+                  >
                     {item.name}
                   </Link>
                 ))}

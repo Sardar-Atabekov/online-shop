@@ -22,6 +22,7 @@ class App extends Component {
           <Route exact path="/department/:id" component={Department} />
           <Route exact path="/category/:id" component={Category} />
           <Route exact path="/product/:id" component={Product} />
+          {/* <Route exact path="/basket/" component={Product} /> */}
           <Route exact path="*" component={NotFound} />
         </Switch>
       </React.Fragment>

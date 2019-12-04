@@ -47,7 +47,7 @@ class Departments extends Component {
   }
 
   render() {
-    let data =this.state.data;
+    let {data}=this.state;
     return (
       <div className="wrapper">
         <aside className="navBlock">
@@ -68,7 +68,7 @@ class Departments extends Component {
             </form>
 
             <div className="listItem">
-              {data.map(item => (
+              {data.length>0 &&data.map(item => (
                 <div className="item" key={item.id}>
                   <input type="text" className="add" defaultValue={item.name} />
                   <select
