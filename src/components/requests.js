@@ -58,7 +58,7 @@ async function deleteData(url, token) {
     }
   })
     .then(res => {
-      console.log("removed");
+      console.log(res);
     })
     .catch(err => {
       console.error(err);
