@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import Navigation from "../navigation/navigation";
 import Search from "../search/search.js";
 import Footer from "../footer/footer.js";
+import NamePage from "../blocks/namePage";
+import './products.css';
 // import Category from "./addCategory";
 
 // import "./categories.css";
@@ -18,20 +20,6 @@ class Products extends Component {
     };
 
     this.changeSelectDepartment = this.changeSelectDepartment.bind(this);
-  }
-
-  changeCategoryClick(event) {
-    let id = event.target.getAttribute("id"),
-      data = {
-        id,
-        active: event.target.parentNode.childNodes[2].value,
-        name: event.target.parentNode.childNodes[1].value,
-        category_id: event.target.previousSibling.value,
-        image: event.target.parentNode.childNodes[3].value
-      };
-
-    console.log(data);
-    putData(`/subCategory/${data.id}`, data);
   }
 
   changeSelectDepartment(event) {
@@ -60,13 +48,14 @@ class Products extends Component {
         <aside className="navBlock">
           <Navigation />
         </aside>
-        <div className="container">
+        <div className="containerAdmin">
           <header className="main-search">
             <Search />
           </header>
-          <main className="categoriesContent">
+          <main className="productsPage">
             <div className="addProducts">
-              
+              <NamePage name="Products Page"/>
+              <Link to={"addProduct"}>Добавить</Link>
             </div>
             <table>
               <tbody>

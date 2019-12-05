@@ -6,7 +6,7 @@ class Footer extends Component {
   render() {
     return (
       <nav className="footerComponent">
-        <ul className="footerComponent">
+        <ul>
           <li className="nav-item">
             <Link to={"/admin"} className="nav-link">
               Home

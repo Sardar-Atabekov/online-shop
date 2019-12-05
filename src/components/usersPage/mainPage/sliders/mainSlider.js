@@ -40,8 +40,8 @@ class Slider extends Component {
 
   render() {
     let { select, images } = this.state;
-    images.push(this.props.image);
-    this.setState({images});
+    // images.push(this.props.image);
+    // this.setState({images});
     console.log(this.state);
     return (
       <div className="mainSlider">

@@ -6,7 +6,6 @@
 
 .footerComponent {
     display: flex;
-    padding-top: 10px;
 }
 
 .main-footer {
@@ -15,6 +14,8 @@
     padding: .5rem;
     background-color: #fff !important;
     margin-top: auto;
+    padding-top: 15px;
+    height: 60px;
 }
 
 
