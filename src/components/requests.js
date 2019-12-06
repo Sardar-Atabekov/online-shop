@@ -1,6 +1,4 @@
-
-const API =
-  "https://my-demo-e-shop.herokuapp.com";
+const API = "https://my-demo-e-shop.herokuapp.com";
 
 async function getData(url) {
   try {
@@ -20,6 +18,7 @@ async function getData(url) {
 }
 
 async function postData(url, data, token) {
+  console.log(JSON.stringify(data));
   await fetch(`${API}${url}`, {
     method: "POST",
     headers: {
@@ -28,7 +27,11 @@ async function postData(url, data, token) {
       "Content-Type": "application/json"
     },
     body: JSON.stringify(data)
-  });
+  })
+    .then(res => console.log(res))
+    .catch(err => {
+      console.error(err);
+    });
 }
 
 async function putData(url, data, token) {
@@ -65,4 +68,4 @@ async function deleteData(url, token) {
     });
 }
 
-export { getData, postData, putData, deleteData };
+export { getData, postData, putData, deleteData, API };
