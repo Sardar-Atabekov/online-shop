@@ -10,23 +10,27 @@ const AddProduct = () => {
   const [subCategory, setCategory] = useState(1);
   const [color, setColor] = useState("");
   const [description, setDescription] = useState("");
-  const [category, getCategory] = useState({});
+  let [category, getCategory] = useState({});
   const [size, setSize] = useState({});
   const [inStock, setInStock] = useState(true);
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
   const [quantity, setQuantity] = useState(0);
   const [images, setImages] = useState(0);
+  const [dp, getDp] = useState(0);
+  let [selectDp, setSelectDp] = useState(dp.length>0&& dp[0].id);
 
   useEffect(() => {
     axios.get(`${API}/subCategory/all`).then(res => {
       const data = res.data;
       getCategory(data);
     });
-    // getData("/subCategory/all").then(data => {
-    //   setCategory(data);
-    // });
+    axios.get(`${API}/category/all`).then(res => {
+      const data = res.data;
+      getDp(data);
+    });
   }, []);
+
   const product = {
     description: description,
     inStock: inStock,
@@ -52,7 +56,8 @@ const AddProduct = () => {
   function add() {
     postData("/product/", product);
   }
-
+  let categorySelect =  category;
+  categorySelect =categorySelect.length>0&& categorySelect.filter(item=>item.id===selectDp);
   return (
     <div className="wrapper">
       <aside className="navBlock">
@@ -93,6 +98,25 @@ const AddProduct = () => {
                   />
                 </div>
                 <div className="form-group">
+                  <label htmlFor="inCategory">Департаменты</label>
+                  <select
+                    id="inCategory"
+                    name="inCategory"
+                    className="select"
+                    required
+                    onChange={e => setSelectDp(e.target.value)}
+                  >
+                    {dp.length > 0
+                      ? dp.map(item => (
+                          <option value={item.id} key={item.id}>
+                            {item.name}
+                          </option>
+                        ))
+                      : ""}
+                  </select>
+                </div>
+
+                <div className="form-group">
                   <label htmlFor="inCategory">Категории</label>
                   <select
                     id="inCategory"
@@ -101,8 +125,8 @@ const AddProduct = () => {
                     required
                     onChange={e => setCategory(e.target.value)}
                   >
-                    {category.length > 0
-                      ? category.map(item => (
+                    {categorySelect.length > 0
+                      ? categorySelect.map(item => (
                           <option value={item.id} key={item.id}>
                             {item.name}
                           </option>
@@ -186,7 +210,7 @@ const AddProduct = () => {
                 </div>
               </div>
 
-              <input type="button" value="Добавить" onClick={add}/>
+              <input type="button" value="Добавить" onClick={add} />
             </form>
           </div>
         </main>

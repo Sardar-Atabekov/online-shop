@@ -5,7 +5,7 @@ import Navigation from "../navigation/navigation";
 import Search from "../search/search.js";
 import Footer from "../footer/footer.js";
 import NamePage from "../blocks/namePage";
-import './products.css';
+import "./products.css";
 // import Category from "./addCategory";
 
 // import "./categories.css";
@@ -16,33 +16,37 @@ class Products extends Component {
     this.state = {
       body: [],
       data: [],
-      dp: []
+      select: null,
+      dp: [],
+      category: []
     };
 
-    this.changeSelectDepartment = this.changeSelectDepartment.bind(this);
+    this.categoryName = this.categoryName.bind(this);
   }
 
-  changeSelectDepartment(event) {
-    let select = event.target.value,
-      arr = this.state.body;
-    if (select === "all") {
-      this.setState({ data: arr });
-    } else {
-      arr = arr.filter(department => department.category_id === +select);
-      this.setState({
-        data: arr
-      });
-    }
-  }
   async componentDidMount() {
-    getData("/product/all/").then(data => {
-      this.setState({ data });
+    getData("/product/all/").then(body => {
+      this.setState({ body });
+    });
+    getData("/subCategory/all/").then(category => {
+      this.setState({ category });
+    });
+    getData("/category/all/").then(dp => {
+      this.setState({ dp });
+      this.setState({ select: dp[0].id });
     });
   }
 
+  categoryName(id) {
+    let name =
+      this.state.category.length > 0 &&
+      this.state.category.filter(category => category.id === id)[0].name;
+    return name;
+  }
+
   render() {
-    let { data } = this.state;
-    console.log(data);
+    let data = this.state.body;
+    console.log(this.state);
     return (
       <div className="wrapper">
         <aside className="navBlock">
@@ -54,7 +58,7 @@ class Products extends Component {
           </header>
           <main className="productsPage">
             <div className="addProducts">
-              <NamePage name="Products Page"/>
+              <NamePage name="Products Page" />
               <Link to={"addProduct"}>Добавить</Link>
             </div>
             <table>
@@ -64,51 +68,52 @@ class Products extends Component {
 
                   <th>Категория</th>
                   <th>Статус</th>
-                  <th>Ед. изм.</th>
                   <th>Цена</th>
                   <th colSpan="2">Операции</th>
                 </tr>
-                {data.length>0&&data.map(product => (
-                  <tr key={product.id}>
-                    <td>
-                      <Link to={{ pathname: `/product/${product.id}/` }}>
-                        {product.name}
-                      </Link>
-                    </td>
+                {data.length > 0 &&
+                  data.map(product => (
+                    <tr key={product.id}>
+                      <td>
+                        <Link to={{ pathname: `/product/${product.id}/` }}>
+                          {product.name}
+                        </Link>
+                      </td>
 
-                    <td>{product.category}</td>
-                    <td>
-                      <label className="switch">
-                        <input
-                          type="checkbox"
-                          onChange={() => {
-                            putData(`/admin/changeproductStatus/${product.id}`);
-                          }}
-                          defaultChecked={
-                            product.status === "Have" ? true : false
-                          }
-                        />
-                        <span className="slider round"></span>
-                      </label>
-                    </td>
-                    <td>{product.weight}</td>
-                    <td>{product.price} сом</td>
-                    <td>
-                      <Link to={{ pathname: `/product/${product.id}/` }}>
-                        Изменить
-                      </Link>
-                    </td>
-                    <td
-                      className="deleteProduct"
-                      onClick={event => {
-                        deleteData(`/product/${product.id}`);
-                        event.target.parentNode.remove();
-                      }}
-                    >
-                      Удалить
-                    </td>
-                  </tr>
-                ))}
+                      <td>{this.categoryName(product.subCategory)}</td>
+                      <td>
+                        <label className="switch">
+                          <input
+                            type="checkbox"
+                            onChange={() => {
+                              putData(
+                                `/admin/changeproductStatus/${product.id}`
+                              );
+                            }}
+                            defaultChecked={
+                              product.status === "Have" ? true : false
+                            }
+                          />
+                          <span className="slider round"></span>
+                        </label>
+                      </td>
+                      <td>{product.price} сом</td>
+                      <td>
+                        <Link to={{ pathname: `/product/${product.id}/` }}>
+                          Изменить
+                        </Link>
+                      </td>
+                      <td
+                        className="deleteProduct"
+                        onClick={event => {
+                          deleteData(`/product/${product.id}`);
+                          event.target.parentNode.remove();
+                        }}
+                      >
+                        Удалить
+                      </td>
+                    </tr>
+                  ))}
               </tbody>
             </table>
           </main>

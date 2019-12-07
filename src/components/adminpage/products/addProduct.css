@@ -98,11 +98,7 @@
     margin: 0px;
 }
 
-*,
-::after,
-::before {
-    box-sizing: border-box;
-}
+
 
 .addProductContent .form-row .select,
 .addTable .select {
@@ -181,7 +177,8 @@
 }
 
 .smallGroup {
-    width: 180px !important;
+    width: 160px !important;
+    margin-left: 45px !important;
 }
 
 .smallGroup select {
