@@ -8,17 +8,17 @@ import "./addProduct.css";
 
 const AddProduct = () => {
   const [subCategory, setCategory] = useState(1);
-  const [color, setColor] = useState("");
+  let [color, setColor] = useState("");
   const [description, setDescription] = useState("");
   let [category, getCategory] = useState({});
-  const [size, setSize] = useState({});
+  let [size, setSize] = useState("");
   const [inStock, setInStock] = useState(true);
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
   const [quantity, setQuantity] = useState(0);
   const [images, setImages] = useState(0);
-  const [dp, getDp] = useState(0);
-  let [selectDp, setSelectDp] = useState(dp.length>0&& dp[0].id);
+  const [dp, getDp] = useState({});
+  let [selectDp, setSelectDp] = useState([]);
 
   useEffect(() => {
     axios.get(`${API}/subCategory/all`).then(res => {
@@ -28,17 +28,32 @@ const AddProduct = () => {
     axios.get(`${API}/category/all`).then(res => {
       const data = res.data;
       getDp(data);
+      setSelectDp(data[0].id);
     });
   }, []);
 
+  // size  = size.toUpperCase();
+  // color = size.toUpperCase();
   const product = {
     description: description,
     inStock: inStock,
     name: name,
     productInfos: [
       {
-        color: color,
+        color: color.toUpperCase(),
         images: [
+          {
+            url: images
+          },
+          {
+            url: images
+          },
+          {
+            url: images
+          },
+          {
+            url: images
+          },
           {
             url: images
           }
@@ -46,7 +61,7 @@ const AddProduct = () => {
 
         inStock: inStock,
         quantity: quantity,
-        size: size,
+        size: size.toUpperCase(),
         unitPrice: price
       }
     ],
@@ -56,8 +71,12 @@ const AddProduct = () => {
   function add() {
     postData("/product/", product);
   }
-  let categorySelect =  category;
-  categorySelect =categorySelect.length>0&& categorySelect.filter(item=>item.id===selectDp);
+  let categorySelect = category;
+  console.log(categorySelect);
+  console.log(selectDp);
+  categorySelect =
+    categorySelect.length > 0 &&
+    categorySelect.filter(item => item.category_id === +selectDp);
   return (
     <div className="wrapper">
       <aside className="navBlock">
@@ -98,7 +117,7 @@ const AddProduct = () => {
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="inCategory">Департаменты</label>
+                  <label htmlFor="inCategory">Категория</label>
                   <select
                     id="inCategory"
                     name="inCategory"
@@ -115,9 +134,18 @@ const AddProduct = () => {
                       : ""}
                   </select>
                 </div>
-
                 <div className="form-group">
-                  <label htmlFor="inCategory">Категории</label>
+                  <label htmlFor="unitPrice">Цена</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    required
+                    id="unitPrice"
+                    onChange={e => setPrice(e.target.value)}
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="inCategory">Субкатегория</label>
                   <select
                     id="inCategory"
                     name="inCategory"
@@ -157,15 +185,14 @@ const AddProduct = () => {
                     <option value="false">Скрыта</option>
                   </select>
                 </div>
-
-                <div className="form-group">
-                  <label htmlFor="unitPrice">Цена</label>
+                <div className="form-group addImage">
+                  <label htmlFor="image">Изображение</label>
                   <input
                     type="text"
                     className="form-control"
                     required
-                    id="unitPrice"
-                    onChange={e => setPrice(e.target.value)}
+                    id="image"
+                    onChange={e => setImages(e.target.value)}
                   />
                 </div>
                 <div className="form-group">
@@ -176,16 +203,6 @@ const AddProduct = () => {
                     className="form-control"
                     id="color"
                     onChange={e => setColor(e.target.value)}
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="image">Изображение</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    required
-                    id="image"
-                    onChange={e => setImages(e.target.value)}
                   />
                 </div>
                 <div className="form-group">

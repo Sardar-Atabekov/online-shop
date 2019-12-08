@@ -19,15 +19,14 @@ class Categories extends Component {
     this.changeSelectDepartment = this.changeSelectDepartment.bind(this);
   }
 
-  changeCategoryClick(event) {
-    let id = event.target.getAttribute("id"),
-      data = {
-        id,
-        active: event.target.parentNode.childNodes[2].value,
-        name: event.target.parentNode.childNodes[1].value,
-        category_id: event.target.previousSibling.value,
-        image: event.target.parentNode.childNodes[3].value
-      };
+  changeCategoryClick(event, id) {
+    let data = {
+      id,
+      active: event.target.parentNode.childNodes[2].value,
+      name: event.target.parentNode.childNodes[1].value,
+      category_id: event.target.previousSibling.value,
+      image: event.target.parentNode.childNodes[3].value
+    };
 
     console.log(data);
     putData(`/subCategory/${data.id}`, data);
@@ -126,9 +125,10 @@ class Categories extends Component {
                     )}
                     <input
                       type="button"
-                      id={category.id}
                       className="changeBtn"
-                      onClick={this.changeCategoryClick}
+                      onClick={event =>
+                        this.changeCategoryClick(event, category.id)
+                      }
                       value="Изменить"
                     />
                     <input
