@@ -47,7 +47,7 @@ class Departments extends Component {
   }
 
   render() {
-    let {data}=this.state;
+    let { data } = this.state;
     return (
       <div className="wrapper">
         <aside className="navBlock">
@@ -68,37 +68,43 @@ class Departments extends Component {
             </form>
 
             <div className="listItem">
-              {data.length>0 &&data.map(item => (
-                <div className="item" key={item.id}>
-                  <input type="text" className="add" defaultValue={item.name} />
-                  <select
-                    className="select"
-                    name="active"
-                    defaultValue={item.active}
-                  >
-                    <option value="true">Есть</option>
-                    <option value="false">Скрыта</option>
-                  </select>
+              {data &&
+                data.length > 0 &&
+                data.map(item => (
+                  <div className="item" key={item.id}>
+                    <input
+                      type="text"
+                      className="add"
+                      defaultValue={item.name}
+                    />
+                    <select
+                      className="select"
+                      name="active"
+                      defaultValue={item.active}
+                    >
+                      <option value="true">Есть</option>
+                      <option value="false">Скрыта</option>
+                    </select>
 
-                  <input
-                    type="button"
-                    id={item.id}
-                    className="changeBtn"
-                    onClick={this.changeTableClick}
-                    value="Изменить"
-                  />
+                    <input
+                      type="button"
+                      id={item.id}
+                      className="changeBtn"
+                      onClick={this.changeTableClick}
+                      value="Изменить"
+                    />
 
-                  <input
-                    type="button"
-                    className="deleteBtn"
-                    onClick={event => {
-                      deleteData(`/category/${item.id}`);
-                      event.target.parentNode.remove();
-                    }}
-                    value="Удалить"
-                  />
-                </div>
-              ))}
+                    <input
+                      type="button"
+                      className="deleteBtn"
+                      onClick={event => {
+                        deleteData(`/category/${item.id}`);
+                        event.target.parentNode.remove();
+                      }}
+                      value="Удалить"
+                    />
+                  </div>
+                ))}
             </div>
           </main>
           <footer className="main-footer">
