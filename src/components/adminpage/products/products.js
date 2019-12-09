@@ -105,10 +105,7 @@ class Products extends Component {
                       <option value="false">Скрыта</option>
                     </select>
                     {/* <div className="">{this.categoryName(product.subCategory)}</div> */}
-                    <Link
-                      to={`product/${product.id}/`}
-                      className="changeBtn"
-                    >
+                    <Link to={`product/${product.id}/`} className="changeBtn">
                       Изменить
                     </Link>
                     <input

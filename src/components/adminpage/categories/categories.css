@@ -80,9 +80,11 @@
     padding-right: 10px;
     padding-left: 9px;
 }
+
 .active {
     padding-right: 14px;
 }
+
 .imageInput {
     width: 62.5% !important;
 }
@@ -91,4 +93,3 @@
     width: 100% !important;
     height: 35.5px;
 }
-

@@ -35,8 +35,6 @@ const AddProduct = () => {
     });
   }, []);
 
-  // size  = size.toUpperCase();
-  // color = size.toUpperCase();
   const product = {
     description: description,
     inStock: inStock,
@@ -194,7 +192,6 @@ const AddProduct = () => {
                     id="image"
                     onChange={e => setImages(e.target.value)}
                   />
-
                   <input
                     type="text"
                     className="form-control"
@@ -202,7 +199,6 @@ const AddProduct = () => {
                     id="image"
                     onChange={e => setImages1(e.target.value)}
                   />
-
                   <input
                     type="text"
                     className="form-control"
@@ -210,7 +206,6 @@ const AddProduct = () => {
                     id="image"
                     onChange={e => setImages2(e.target.value)}
                   />
-
                   <input
                     type="text"
                     className="form-control"
