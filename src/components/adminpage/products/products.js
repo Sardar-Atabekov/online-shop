@@ -1,14 +1,11 @@
 import React, { Component } from "react";
-import { getData, putData, deleteData } from "../../requests";
+import { getData, deleteData } from "../../requests";
 import { Link } from "react-router-dom";
 import Navigation from "../navigation/navigation";
 import Search from "../search/search.js";
 import Footer from "../footer/footer.js";
 import NamePage from "../blocks/namePage";
 import "./products.css";
-// import Category from "./addCategory";
-
-// import "./categories.css";
 
 class Products extends Component {
   constructor(props) {
@@ -30,6 +27,7 @@ class Products extends Component {
     });
     getData("/subCategory/all/").then(category => {
       this.setState({ category });
+      console.log(category);
     });
     getData("/category/all/").then(dp => {
       this.setState({ dp });
@@ -46,6 +44,7 @@ class Products extends Component {
 
   render() {
     let data = this.state.body;
+    // let { dp } = this.state;
     console.log(this.state);
     return (
       <div className="wrapper">
@@ -60,62 +59,64 @@ class Products extends Component {
             <div className="addProducts">
               <NamePage name="Products Page" />
               <Link to={"addProduct"}>Добавить</Link>
+              <div className="filterProduct">
+                {/* <div className="form-group">
+                  <label htmlFor="inCategory">Категория</label>
+                  <select
+                    id="inCategory"
+                    name="inCategory"
+                    className="select"
+                    required
+                    onChange={e => this.setState({ selectCt: e.target.value })}
+                  >
+                    {dp.length > 0
+                      ? dp.map(item => (
+                          <option value={item.id} key={item.id}>
+                            {item.name}
+                          </option>
+                        ))
+                      : ""}
+                  </select>
+                </div> */}
+              </div>
             </div>
-            <table>
-              <tbody>
-                <tr>
-                  <th>Названия</th>
-
-                  <th>Категория</th>
-                  <th>Статус</th>
-                  <th>Цена</th>
-                  <th colSpan="2">Операции</th>
-                </tr>
-                {data.length > 0 &&
-                  data.map(product => (
-                    <tr key={product.id}>
-                      <td>
-                        <Link to={{ pathname: `/product/${product.id}/` }}>
-                          {product.name}
-                        </Link>
-                      </td>
-
-                      <td>{this.categoryName(product.subCategory)}</td>
-                      <td>
-                        <label className="switch">
-                          <input
-                            type="checkbox"
-                            onChange={() => {
-                              putData(
-                                `/admin/changeproductStatus/${product.id}`
-                              );
-                            }}
-                            defaultChecked={
-                              product.status === "Have" ? true : false
-                            }
-                          />
-                          <span className="slider round"></span>
-                        </label>
-                      </td>
-                      <td>{product.price} сом</td>
-                      <td>
-                        <Link to={{ pathname: `/product/${product.id}/` }}>
-                          Изменить
-                        </Link>
-                      </td>
-                      <td
-                        className="deleteProduct"
-                        onClick={event => {
-                          deleteData(`/product/${product.id}`);
-                          event.target.parentNode.remove();
-                        }}
-                      >
-                        Удалить
-                      </td>
-                    </tr>
-                  ))}
-              </tbody>
-            </table>
+            <div className="listItem">
+              {data &&
+                data.map(product => (
+                  <div className="item" key={product.id}>
+                    <img src={product.productInfos[0].images[0].url} alt={product.name} />
+                    <input
+                      type="text"
+                      className="input  imageInput"
+                      defaultValue={product.name}
+                    />
+                    <select
+                      className="select active"
+                      name="name"
+                      defaultValue={product.inStock}
+                    >
+                      <option value="true">Есть</option>
+                      <option value="false">Скрыта</option>
+                    </select>
+                    {/* <div className="">{this.categoryName(product.subCategory)}</div> */}
+                    <Link
+                      to={`/admin/product/${product.id}/`}
+                      className="changeBtn"
+                    >
+                      Изменить
+                    </Link>
+                    <input
+                      type="button"
+                      className="deleteBtn divDelete"
+                      value="Удалить"
+                      onClick={event => {
+                        deleteData(`/product/${product.id}`);
+                        event.target.parentNode.remove();
+                      }}
+                    />
+                  </div>
+                ))}
+            </div>
           </main>
           <footer className="main-footer">
             <Footer />

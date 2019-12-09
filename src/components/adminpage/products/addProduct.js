@@ -16,7 +16,10 @@ const AddProduct = () => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
   const [quantity, setQuantity] = useState(0);
-  const [images, setImages] = useState(0);
+  const [image, setImages] = useState(0);
+  const [image1, setImages1] = useState(0);
+  const [image2, setImages2] = useState(0);
+  const [image3, setImages3] = useState(0);
   const [dp, getDp] = useState({});
   let [selectDp, setSelectDp] = useState([]);
 
@@ -43,19 +46,16 @@ const AddProduct = () => {
         color: color.toUpperCase(),
         images: [
           {
-            url: images
+            url: image
           },
           {
-            url: images
+            url: image1
           },
           {
-            url: images
+            url: image2
           },
           {
-            url: images
-          },
-          {
-            url: images
+            url: image3
           }
         ],
 
@@ -67,7 +67,7 @@ const AddProduct = () => {
     ],
     subCategory: subCategory
   };
-  console.log(product);
+  console.log(product.images);
   function add() {
     postData("/product/", product);
   }
@@ -194,7 +194,32 @@ const AddProduct = () => {
                     id="image"
                     onChange={e => setImages(e.target.value)}
                   />
+
+                  <input
+                    type="text"
+                    className="form-control"
+                    required
+                    id="image"
+                    onChange={e => setImages1(e.target.value)}
+                  />
+
+                  <input
+                    type="text"
+                    className="form-control"
+                    required
+                    id="image"
+                    onChange={e => setImages2(e.target.value)}
+                  />
+
+                  <input
+                    type="text"
+                    className="form-control"
+                    required
+                    id="image"
+                    onChange={e => setImages3(e.target.value)}
+                  />
                 </div>
+
                 <div className="form-group">
                   <label htmlFor="color">Цвет</label>
                   <input

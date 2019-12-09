@@ -187,4 +187,9 @@
 }
 .addImage {
     width: 83.5% !important;
+    height: 25% !important;
+}
+
+.addImage .form-control {
+    margin-bottom: 15px;
 }
