@@ -6,16 +6,19 @@
 
 .footerComponent {
     display: flex;
+    height: 20px !important;
+    margin-top: 20px;
 }
 
 .main-footer {
+    display: flex;
+    flex-direction: column;
     height: 2.8rem;
     border: 1px solid #e1e5eb !important;
-    padding: .5rem;
+    padding:0 .5rem;
     background-color: #fff !important;
     margin-top: auto;
-    padding-top: 15px;
-    height: 60px;
+    height: 60px !important;
 }
 
 
@@ -24,6 +27,7 @@
     display: flex;
     margin: 0px;
     padding: 0px;
+    height: 40px;
 }
 
 .main-footer .nav-link {

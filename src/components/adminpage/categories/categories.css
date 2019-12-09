@@ -55,7 +55,7 @@
 }
 
 .addCategoryBtn {
-    width: 120px;
+    width: 120px !important;
 }
 
 .categoriesContent .addCategories {

@@ -84,7 +84,13 @@ class Products extends Component {
               {data &&
                 data.map(product => (
                   <div className="item" key={product.id}>
-                    <img src={product.productInfos[0].images[0].url} alt={product.name} />
+                    <Link to={`/product/${product.id}`} className="imageLink">
+                      <img
+                        src={product.productInfos[0].images[0].url}
+                        alt={product.name}
+                      />
+                    </Link>
+
                     <input
                       type="text"
                       className="input  imageInput"
@@ -100,7 +106,7 @@ class Products extends Component {
                     </select>
                     {/* <div className="">{this.categoryName(product.subCategory)}</div> */}
                     <Link
-                      to={`/admin/product/${product.id}/`}
+                      to={`product/${product.id}/`}
                       className="changeBtn"
                     >
                       Изменить

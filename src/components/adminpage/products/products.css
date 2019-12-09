@@ -31,7 +31,7 @@
     width: 69.5%;
 }
 
-.productsPage .listItem .item img {
+.productsPage .listItem .item .imageLink img {
     height: 300px;
     width: 100%;
     border-radius: .25rem;
