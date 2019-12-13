@@ -1,0 +1,8 @@
+.blocks {
+    display: flex;
+}
+
+.mainBlockImage {
+    width: 600px;
+    height: 340px;
+}

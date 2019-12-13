@@ -19,7 +19,6 @@ export default class CatalogPageComponent extends React.Component {
           arr.push(...(data.filter(product => product.id === id)))
         );
       }
-      console.log(arr);
       this.setState({ data: arr });
     });
   }
