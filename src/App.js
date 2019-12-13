@@ -10,6 +10,7 @@ import Login from "./components/loginpage/login";
 import Department from "./components/usersPage/derartament/departament";
 import Category from './components/usersPage/category/category';
 import Product from "./components/usersPage/product/products";
+import Basket from "./components/usersPage/basket/basket";
 import "./App.css";
 
 class App extends Component {
@@ -27,7 +28,7 @@ class App extends Component {
           <Route exact path="/department/:id" component={Department} />
           <Route exact path="/category/:id" component={Category} />
           <Route exact path="/product/:id" component={Product} />
-          {/* <Route exact path="/basket/" component={Product} /> */}
+          <Route exact path="/basket/" component={Basket} />
           <Route exact path="*" component={NotFound} />
         </Switch>
       </React.Fragment>

@@ -1,8 +1,6 @@
 import React from "react";
 import { getData } from "../../requests.js";
-import { Link } from "react-router-dom";
 import Header from "./../header/header";
-import "./category.css";
 export default class CatalogPageComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -12,16 +10,28 @@ export default class CatalogPageComponent extends React.Component {
   }
 
   async componentDidMount() {
-    getData(`/product/subCategory/${this.props.match.params.id}`).then(data => {
-      this.setState({ data });
+    getData(`/product/all/`).then(data => {
+      let keys = JSON.parse(localStorage.getItem("keys"));
+      console.log(keys);
+      let arr = [];
+      if (keys) {
+        keys.map(id =>
+          arr.push(...(data.filter(product => product.id === id)))
+        );
+      }
+      console.log(arr);
+      this.setState({ data: arr });
     });
   }
 
   render() {
-    // let { data } = this.state;
+    let { data } = this.state;
+
+    console.log(data);
     return (
       <div className="category">
         <Header />
+        <div></div>
       </div>
     );
   }

@@ -1,5 +1,21 @@
 const API = "https://my-demo-e-shop.herokuapp.com";
 
+
+// let token;
+// if (localStorage.getItem("token")) {
+//   token = localStorage.getItem("token");
+// } else {
+//   // console.log(window.location);
+//   // console.log(localStorage.getItem("NotFound"));
+//   // if (localStorage.getItem("NotFound")) {
+//   //   localStorage.removeItem('NotFound');
+//   // } else
+//   if (window.location.pathname !== "/") {
+//     setTimeout(() => (window.location.href = "/"), 3000);
+//     // localStorage.removeItem('NotFound');
+//   }
+// }
+
 async function getData(url) {
   try {
     let response = await fetch(`${API}${url}`, {
@@ -17,9 +33,8 @@ async function getData(url) {
   }
 }
 
-async function postData(url, data, token) {
-  console.log(JSON.stringify(data));
-  await fetch(`${API}${url}`, {
+async function postData(url, data) {
+  let req = await fetch(`${API}${url}`, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -27,16 +42,14 @@ async function postData(url, data, token) {
       "Content-Type": "application/json"
     },
     body: JSON.stringify(data)
-  })
-    .then(res => console.log(res))
-    .catch(err => {
-      console.error(err);
-    });
+  });
+  const res = await req.json();
+  return res;
 }
 
-async function putData(url, data, token) {
+async function putData(url, data) {
   console.log(JSON.stringify(data));
-  await fetch(`${API}${url}`, {
+  let req = await fetch(`${API}${url}`, {
     method: "PUT",
     headers: {
       Accept: "application/json",
@@ -44,11 +57,9 @@ async function putData(url, data, token) {
       "Content-Type": "application/json"
     },
     body: JSON.stringify(data)
-  })
-    .then(res => console.log(res))
-    .catch(err => {
-      console.error(err);
-    });
+  });
+  const res = await req.json();
+  return res;
 }
 
 async function deleteData(url, token) {
