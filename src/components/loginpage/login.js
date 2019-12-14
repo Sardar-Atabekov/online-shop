@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { API } from "./../requests";
+// import { API } from "./../requests";
 import "./login.css";
 
 class LoginPage extends Component {
@@ -38,12 +38,22 @@ class LoginPage extends Component {
       // console.log(res.role);
       if (data.password == "password") {
         this.props.history.push(`/admin/category`);
+      } else {
+        this.setState({
+          error: "Неправильное имя пользователя или пароль",
+          status: true
+        });
       }
       // else if (+res.role === 2) {
       //   this.props.history.push(`/cook`);
       // } else if (+res.role === 4) {
       //   this.props.history.push(`/barmen`);
       // }
+    } else {
+      this.setState({
+        error: "Неправильное имя пользователя или пароль",
+        status: true
+      });
     }
   }
 

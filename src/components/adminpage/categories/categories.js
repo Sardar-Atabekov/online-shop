@@ -35,13 +35,17 @@ class Categories extends Component {
   changeSelectDepartment(event) {
     let select = event.target.value,
       arr = this.state.body;
+    console.log(select);
+    console.log(arr);
     if (select === "all") {
       this.setState({ data: arr });
     } else {
-      arr = arr.filter(department => department.category_id === +select);
+      let arr1 = arr.filter(a => a.category_id === +select);
+      console.log(arr1);
       this.setState({
         data: arr
       });
+      console.log(this.state.data);
     }
   }
   async componentDidMount() {

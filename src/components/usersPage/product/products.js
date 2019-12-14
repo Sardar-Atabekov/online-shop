@@ -50,7 +50,7 @@ export default class Product extends React.Component {
             </div>
             <div className="productInfo">
               <h1 className="product-title">{product.name}</h1>
-              <div className="description">{product.description}</div>
+              <div className="description">Кроссовки Stan Smith из кожи c мягкой подкладкой из махрового трикотажа и искусственной кожи. Удобные застежки и дышащая стелька OrthoLite® для комфорта маленьких ножек. Классические перфорированные три полоски и логотип Stan Smith на язычке.</div>
               <h3 className="price">{product.productInfos[0].unitPrice} $</h3>
               <div className="selects">
                 <div className="form-group">

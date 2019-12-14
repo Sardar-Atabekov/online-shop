@@ -28,7 +28,7 @@ const MainPageComponent = () => {
       <div className="slider_wrapper">
         <Slider />
       </div>
-      <div className="container1 row my-5 ">
+      {/* <div className="container1 row my-5 ">
         <div className="col-6 row">
           <div className="col-6 mb-3 ">
             {tagData.length > 0 ? (
@@ -99,7 +99,7 @@ const MainPageComponent = () => {
             )}
           </div>
         </div>
-      </div>
+      </div> */}
       {/* <Footer /> */}
     </div>
   );

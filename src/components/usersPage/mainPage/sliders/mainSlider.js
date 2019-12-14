@@ -41,15 +41,15 @@ class Slider extends Component {
     let images = [
       {
         url:
-          "https://images.wbstatic.net/poster/ru/main/c1360x370/big_boom_10.jpg"
+          "https://images.wbstatic.net/poster/ru/main/c1360x370/big_dresses_14.jpg"
       },
       {
         url:
-          "https://image01.bonprix.ru/api/s,x,1920,y,640/teaser/homepage/1736-xmas-homepages-2019/int-1-home-silvester-281019-1501518.jpg?h=rumMOtg7yJTmRf0nxUxjReWjor/o3HqnViqK5w2NPV4="
+          "https://images.wbstatic.net/poster/ru/main/c1360x370/big_pred_14.jpg"
       },
       {
         url:
-          "https://images.wbstatic.net/poster/ru/main/c1360x370/big_dresses_1112.jpg"
+          "https://images.wbstatic.net/poster/ru/main/c1360x370/big_electro_14.jpg"
       }
     ];
     console.log(this.state);
