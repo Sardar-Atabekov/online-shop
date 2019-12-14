@@ -7,21 +7,35 @@ export default class CatalogPageComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: [],
+      total: null
     };
+    this.deleteInBasket = this.deleteInBasket.bind(this);
   }
 
   async componentDidMount() {
     getData(`/product/all/`).then(data => {
       let keys = JSON.parse(localStorage.getItem("keys"));
-      let arr = [];
+      let arr = [],
+        total,
+        initialValue = 0;
       if (keys) {
         keys.map(id => arr.push(...data.filter(product => product.id === id)));
       }
+      total = arr.reduce((accumulator, currentValue) => {
+        return accumulator + currentValue.productInfos[0].unitPrice;
+      }, initialValue);
+      this.setState({ total });
       this.setState({ data: arr });
     });
   }
 
+  deleteInBasket(id) {
+    let { data } = this.state;
+    data = data.filter(item => item.id !== id);
+    console.log(data);
+    this.setState({ data });
+  }
   render() {
     let { data } = this.state;
 
@@ -80,6 +94,12 @@ export default class CatalogPageComponent extends React.Component {
                         <dd>{product.productInfos[0].unitPrice}сом</dd>
                       </dl>
                     </div>
+                    <div
+                      className="deleteInBasket"
+                      onClick={() => this.deleteInBasket(product.id)}
+                    >
+                      Удалить
+                    </div>
                   </li>
                 ))}
               </ul>
@@ -88,15 +108,19 @@ export default class CatalogPageComponent extends React.Component {
                   <h1>ОБЩАЯ СТОИМОСТЬ</h1>
                   <span>{data.length} товара</span>
                 </div>
-                <div>
+                <div className="priceBasketWrapper">
                   {data.map(product => (
-                    <div className="priceBasket">
+                    <div className="priceBasket" key={product.id}>
                       <span className="priceBasketName">{product.name}</span>
                       <span className="unitPrice">
-                        {product.productInfos[0].unitPrice}сом
+                        {product.productInfos[0].unitPrice} сом
                       </span>
                     </div>
                   ))}
+                  <div className="priceBasket">
+                    <span>ИТОГО</span>
+                    <span>{this.state.total}</span>
+                  </div>
                 </div>
               </div>
             </div>

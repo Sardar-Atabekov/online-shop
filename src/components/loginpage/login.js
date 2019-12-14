@@ -18,31 +18,32 @@ class LoginPage extends Component {
       data[key] = value;
     });
 
-    let req = await fetch(`${API}/Account/Login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    });
+    // let req = await fetch(`${API}/Account/Login`, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: JSON.stringify(data)
+    // });
 
-    const res = await req.json();
-    if (res.status === 400) {
-      console.log(res);
-      return this.setState({ error: res.message, status: true });
-    }
-    console.log(req);
-    if (res.access_token) {
-      localStorage.setItem("token", res.access_token);
-      localStorage.setItem("role", +res.role);
-      console.log(res.role);
-      if (+res.role === 1) {
-        this.props.history.push(`/meals`);
-      } else if (+res.role === 2) {
-        this.props.history.push(`/cook`);
-      } else if (+res.role === 4) {
-        this.props.history.push(`/barmen`);
+    // const res = await req.json();
+    // if (res.status === 400) {
+    //   console.log(res);
+    //   return this.setState({ error: res.message, status: true });
+    // }
+    // console.log(req);
+    if (data.login == "admin") {
+      // localStorage.setItem("token", res.access_token);
+      // localStorage.setItem("role", +res.role);
+      // console.log(res.role);
+      if (data.password == "password") {
+        this.props.history.push(`/admin/category`);
       }
+      // else if (+res.role === 2) {
+      //   this.props.history.push(`/cook`);
+      // } else if (+res.role === 4) {
+      //   this.props.history.push(`/barmen`);
+      // }
     }
   }
 
