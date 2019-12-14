@@ -64,15 +64,17 @@ class Header extends React.Component {
             </div>
             <div className="departmentsLinks">
               {data &&
-                data.map(item => (
-                  <Link
-                    className="header_link"
-                    to={`/department/${item.id}`}
-                    key={item.id}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
+                data.map((item, index) =>
+                  index < 2 ? (
+                    <Link
+                      className="header_link"
+                      to={`/department/${item.id}`}
+                      key={item.id}
+                    >
+                      {item.name}
+                    </Link>
+                  ) : null
+                )}
             </div>
 
             <div className="col-5">
@@ -92,7 +94,7 @@ class Header extends React.Component {
               <Link to="/" className="header_link">
                 <img src={Heart} alt="logo" className="header_icons col-2" />
               </Link>
-              <Link to="/cart" className="header_link">
+              <Link to="/basket" className="header_link">
                 <img src={Cart} alt="logo" className="header_icons col-2" />
               </Link>
             </div>

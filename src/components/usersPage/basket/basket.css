@@ -1,0 +1,134 @@
+.basketWrapper {
+    width: auto;
+    margin: 0 auto;
+    padding: 30px;
+    max-width: 1310px;
+}
+
+.basketProduct {
+    border: 1px solid #e4e4e4;
+    margin: 10px 0;
+    position: relative;
+    padding: 10px 125px 30px 39px;
+    width: 662px;
+    height: 200px;
+    display: flex;
+    border-radius: .625rem;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(90, 97, 105, .1), 0 0.9375rem 1.40625rem rgba(90, 97, 105, .1), 0 0.25rem 0.53125rem rgba(90, 97, 105, .12), 0 0.125rem 0.1875rem rgba(90, 97, 105, .1);
+}
+
+.titleBasket {
+    margin-top: 40px;
+    margin-left: 40px;
+}
+
+.titleBasket h1 {
+    font-size: 36px;
+    line-height: 44px;
+    margin: 0;
+}
+
+.clearBasket {
+    text-align: center;
+    background: #e4e4e4;
+    padding: 5px;
+    padding-bottom: 12px;
+}
+
+.clearBasket h1 {
+    margin: 0px;
+}
+
+.basketContainer {
+    display: flex;
+}
+
+.titleTotal h1 {
+    font-size: 20px;
+    margin: 0px;
+}
+
+.basketContainer .visual {
+    width: 170px;
+    max-width: none;
+    margin-right: 45px;
+}
+
+
+.basketContainer .visual img {
+    height: 170px;
+    width: 170px;
+    margin-top: 5px;
+    border-radius: .625rem;
+}
+
+.basketContainer .content {
+    padding-top: 20px;
+    max-width: 400px;
+}
+
+.basketProduct dl {
+    margin: 7px 0;
+    padding: 0;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.basketProduct dl dt,
+.basketProduct dl dd {
+    margin: 0 3px;
+    padding: 0;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.strongTitle {
+    margin-bottom: 100px !important;
+}
+
+.strongTitle a {
+    color: black !important;
+}
+
+.mb {
+    margin-bottom: 20px;
+}
+
+.availability {
+    color: green;
+}
+
+.titleTotal {
+    background: black;
+    color: #fff;
+    background: #000;
+    /* margin: 0 18px 24px; */
+    font-family: "oswald", "Noto", Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    padding: 29px 18px 15px;
+    width: 240px;
+}
+
+.titleTotal h1 {
+    margin: 0px;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+.totalList {
+    margin-left: 130px;
+    margin-top: 30px;
+}
+
+.titleTotal {
+    font-size: 12px;
+    margin-top: 3px;
+    font-weight: 500;
+}
+
+.priceBasket {
+    display: flex;
+    justify-content: space-around;
+    font-weight: 500;
+    font-size: 17px;
+}

@@ -11,23 +11,18 @@ class Navigation extends Component {
           <img src={neobisLogo} className="neobis_logo" alt="neobisLogo" />
         </Link>
         <Link to={"/admin/traffic"} className="categories">
-        Analytics
+          Аналитика
         </Link>
         <Link to={"/admin/sales"} className="categories">
-        Online Store
-    </Link>
-        {/* <Link to={"/admin/kitchen"} className="categories">
-          Kitchen
+          Продажи
         </Link>
-        <Link to={"/admin/bar"} className="categories">
-          Bar
-        </Link> */}
+
         <Link to={"/admin/transactions"} className="categories">
           История транзакции
         </Link>
-        <Link to={"/admin/users"} className="categories">
+        {/* <Link to={"/admin/users"} className="categories">
           Пользователи
-        </Link>
+        </Link> */}
         <Link to={"/admin/departments"} className="categories">
           Департаменты
         </Link>
@@ -38,11 +33,8 @@ class Navigation extends Component {
           Список товаров
         </Link>
 
-        <Link to={"/admin/tables"} className="categories">
-          Столы
-        </Link>
-        <Link to={"/admin/meals"} className="categories">
-          Бронирования
+        <Link to={"/admin/Collection"} className="categories">
+          Коллекция
         </Link>
       </nav>
     );
