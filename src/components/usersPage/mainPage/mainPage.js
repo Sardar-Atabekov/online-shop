@@ -1,26 +1,26 @@
 import Header from "../header/header";
 // import Slider from "./sliders/mainSlider";
 // import Blocks from "./blocks/blocks";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Slider from "./sliders/mainSlider";
 // import { UncontrolledCarousel } from "reactstrap";
 // import "./mainPage.css";
 // import Footer from "../../footer/footer";
-import axios from "axios";
-import { Link } from "react-router-dom";
+// import axios from "axios";
+// import { Link } from "react-router-dom";
 
 const MainPageComponent = () => {
-  const [tagData, setTagData] = useState({});
+  // const [tagData, setTagData] = useState({});
 
   useEffect(() => {
     // Axios.get(https://eshopss.herokuapp.com/tag/all).then(res => {
     //   const data = res.data;
     //   setTagData(data);
     // });
-    axios.get(`https://eshopss.herokuapp.com/tag/all`).then(res => {
-      const data = res.data;
-      setTagData(data);
-    });
+    // axios.get(`https://eshopss.herokuapp.com/tag/all`).then(res => {
+    //   const data = res.data;
+    //   setTagData(data);
+    // });
   }, []);
   return (
     <div>

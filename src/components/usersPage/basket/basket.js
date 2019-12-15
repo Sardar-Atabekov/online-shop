@@ -8,7 +8,8 @@ export default class CatalogPageComponent extends React.Component {
     super(props);
     this.state = {
       data: [],
-      total: null
+      total: null,
+      message: null
     };
     this.deleteInBasket = this.deleteInBasket.bind(this);
   }
@@ -26,15 +27,25 @@ export default class CatalogPageComponent extends React.Component {
         return accumulator + currentValue.productInfos[0].unitPrice;
       }, initialValue);
       this.setState({ total });
-      this.setState({ data: arr });
+      if (arr.length > 0) {
+        this.setState({ data: arr });
+      } else {
+        this.setState({ message: "Корзина пуста" });
+      }
     });
   }
 
   deleteInBasket(id) {
     let { data } = this.state;
-    data = data.filter(item => item.id !== id);
+    data = data.filter(item => item.id !== +id);
+    let keys = JSON.parse(localStorage.getItem("keys"));
+    keys = keys.filter(a=>a!==id);
+    console.log(keys);
+    localStorage.removeItem("keys");
+    localStorage.getItem("keys", JSON.stringify(keys));
     console.log(data);
     this.setState({ data });
+    this.setState({ message: "Корзина пуста" });
   }
   render() {
     let { data } = this.state;
@@ -127,7 +138,7 @@ export default class CatalogPageComponent extends React.Component {
           </div>
         ) : (
           <div className="clearBasket">
-            <h1>Корзина пуста</h1>
+            <h1>{this.state.message}</h1>
           </div>
         )}
       </div>

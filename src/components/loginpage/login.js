@@ -32,11 +32,11 @@ class LoginPage extends Component {
     //   return this.setState({ error: res.message, status: true });
     // }
     // console.log(req);
-    if (data.login == "admin") {
+    if (data.login === "admin") {
       // localStorage.setItem("token", res.access_token);
       // localStorage.setItem("role", +res.role);
       // console.log(res.role);
-      if (data.password == "password") {
+      if (data.password === "password") {
         this.props.history.push(`/admin/category`);
       } else {
         this.setState({
