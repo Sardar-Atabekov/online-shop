@@ -43,7 +43,7 @@ class Categories extends Component {
       let arr1 = arr.filter(a => a.category_id === +select);
       console.log(arr1);
       this.setState({
-        data: arr
+        data: arr1
       });
       console.log(this.state.data);
     }
@@ -59,6 +59,7 @@ class Categories extends Component {
   }
 
   render() {
+    console.log(this.state);
     let data = this.state.data.length > 0 ? this.state.data : this.state.body;
     return (
       <div className="wrapper">
