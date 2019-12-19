@@ -171,7 +171,10 @@ export default class CatalogPageComponent extends React.Component {
                   </div>
                 </div>
               ) : (
-                <RegisterOrder data={this.state.data} total={this.state.total} />
+                <RegisterOrder
+                  data={this.state.data}
+                  total={this.state.total}
+                />
               )}
             </div>
           </div>

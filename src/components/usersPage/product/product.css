@@ -13,6 +13,7 @@
     width: 40%;
     text-align: center;
 }
+
 .product-title {
     margin: 0;
 }
@@ -23,12 +24,14 @@
     margin-right: 20px;
     margin-bottom: 20px;
 }
+
 .description {
-    width: 100%; 
+    width: 100%;
     padding: 10px;
-    font-size: 1.5em; 
-    word-wrap: break-word; 
+    font-size: 1.5em;
+    word-wrap: break-word;
 }
+
 .images img {
     width: 100px;
     cursor: pointer;
@@ -46,15 +49,18 @@
 }
 
 .price {
-    margin:0;
+    margin: 0;
 }
+
 .selects {
     display: flex;
     justify-content: center;
 }
+
 .productPage .select {
     margin-left: 5px;
 }
+
 .form-group {
     margin-left: 20px;
     margin-top: 10px;
@@ -75,9 +81,11 @@
     border: 1px solid transparent;
     padding: .375rem .75rem;
     font-size: 1rem;
-    background-color: #343a40;
-    border-color: #343a40;
+    background-color: red;
+    border-color: #fff;
     line-height: 1.5;
+    width: 200px;
+    padding: 10px;
     border-radius: .25rem;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }

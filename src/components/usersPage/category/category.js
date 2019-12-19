@@ -1,7 +1,8 @@
 import React from "react";
 import { getData } from "../../requests.js";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Header from "./../header/header";
+import Product from "./product";
 import "./category.css";
 export default class CatalogPageComponent extends React.Component {
   constructor(props) {
@@ -38,24 +39,30 @@ export default class CatalogPageComponent extends React.Component {
         <div className="categoryProducts">
           {data &&
             data.map(product => (
-              <Link
-                key={product.id}
-                to={`/product/${product.id}`}
-                className="product"
-              >
-                {console.log(product)}
-                {product.productInfos[0] &&
-                product.productInfos[0].images[0] &&
-                product.productInfos[0].images[0].url ? (
-                  <img
-                    src={product.productInfos[0].images[0].url}
-                    alt={product.name}
-                  />
-                ) : (
-                  "false"
-                )}
-                <div className="product_text">{product.name}</div>
-              </Link>
+              // <Link
+              //   key={product.id}
+              //   to={`/product/${product.id}`}
+              //   className="product"
+              // >
+              //   {console.log(product)}
+              //   {product.productInfos[0] &&
+              //   product.productInfos[0].images[0] &&
+              //   product.productInfos[0].images[0].url ? (
+              //     <img
+              //       src={product.productInfos[0].images[0].url}
+              //       alt={product.name}
+              //     />
+              //   ) : (
+              //     "false"
+              //   )}
+              //   <div className="product_text">{product.name}</div>
+              //   <div className="product_price">
+              //     {product.productInfos[0] &&
+              //       product.productInfos[0].unitPrice &&
+              //       product.productInfos[0].unitPrice} сом
+              //   </div>
+              // </Link>
+              <Product product={product} key={product.id}/>
             ))}
         </div>
       </div>
