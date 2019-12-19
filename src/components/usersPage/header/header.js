@@ -63,37 +63,30 @@ class Header extends React.Component {
               </Link>
             </div>
             <div className="departmentsLinks">
-              {data &&
+              {data ? (
                 data.map((item, index) =>
                   index < 2 ? (
-                    <Link
-                      className="header_link"
-                      to={`/department/${item.id}`}
-                      key={item.id}
-                    >
-                      {item.name}
-                    </Link>
-                  ) : (
-                    <div>
-                      <Link to={`/category/${item.id}`} key={item.id}>
-                        <div className="catalog_block col-11">
-                          <img className="catalog_img" alt="catalog-img" />
-                          <div className="catalog_text_block">
-                            <p className="catalog_text">MEN</p>
-                          </div>
-                        </div>
-                      </Link>
-                      <Link to={`/category/${item.id}`} key={item.id}>
-                        <div className="catalog_block col-11">
-                          <img className="catalog_img" alt="catalog-img" />
-                          <div className="catalog_text_block">
-                            <p className="catalog_text">WOMEN</p>
-                          </div>
-                        </div>
+                    <div className="header_link-block">
+                      <Link
+                        className="header_link"
+                        to={`/department/${item.id}`}
+                        key={item.id}
+                      >
+                        {item.name}
                       </Link>
                     </div>
-                  )
-                )}
+                  ) : null
+                )
+              ) : (
+                <div className="">
+                  <Link className="header_link" to={`/department/${1}`} key={1}>
+                    WOMEN
+                  </Link>
+                  <Link className="header_link" to={`/department/${2}`} key={2}>
+                    MEN
+                  </Link>
+                </div>
+              )}
             </div>
 
             <div className="col-5">

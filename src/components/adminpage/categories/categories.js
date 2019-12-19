@@ -50,6 +50,7 @@ class Categories extends Component {
   }
   async componentDidMount() {
     getData("/subCategory/all/").then(body => {
+      body = body.filter(a => !a.description);
       this.setState({ body });
     });
     getData("/category/all/").then(dp => {

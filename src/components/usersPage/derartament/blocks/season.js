@@ -11,11 +11,11 @@ class CategoryBlock extends React.Component {
       data: []
     };
   }
-  async componentDidMount() {
-    getData(`/category/${this.props.id}`).then(data => {
-      this.setState({ data });
-    });
-  }
+  // async componentDidMount() {
+  //   getData(`/category/${this.props.id}`).then(data => {
+  //     this.setState({ data });
+  //   });
+  // }
 
   render() {
     let { data } = this.state;

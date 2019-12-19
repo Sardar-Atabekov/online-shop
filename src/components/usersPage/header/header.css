@@ -48,10 +48,15 @@
 }
 
 .header_link_block {
+  padding-right: 10px;
+}
 
+.departmentsLinks {
+  display: flex;
+}
+
+.header_link-block:nth-child(2) {
   border-left: 0.5px solid rgb(255, 255, 255, 0.5);
-
-
 }
 
 .header_input {
@@ -68,11 +73,13 @@
   height: 30px;
   padding-top: 15px;
 }
+
 .header_icons-container {
   display: flex;
   height: 60px;
-  
+
 }
+
 .container {
   text-align: center;
   margin: 0 auto;
@@ -101,5 +108,5 @@
 }
 
 .departmentsLinks a {
-  margin-left: 20px;
+  margin: 0 20px;
 }

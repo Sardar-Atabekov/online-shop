@@ -173,3 +173,48 @@
     border: 2px solid black;
 }
 
+.mainFormRegisterOrder{
+    padding-left: 120px;
+    padding-top: 30px;
+}
+.headerFormRegisterOrder{
+    background: black;
+    color: #fff;
+    background: #000;
+    /* margin: 0 18px 24px; */
+    font-family: "oswald", "Noto", Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    width: 640px;
+    height: 85px;
+    display: flex;
+    justify-content: center;
+}
+.formRegisterOrder{
+    display: flex;
+    justify-content: center;
+    /* border: 2px ridge greenyellow; */
+    align-items: center;
+    flex-direction: column;
+    max-width: 640px;
+    background: #fff;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(90, 97, 105, .1), 0 0.9375rem 1.40625rem rgba(90, 97, 105, .1), 0 0.25rem 0.53125rem rgba(90, 97, 105, .12), 0 0.125rem 0.1875rem rgba(90, 97, 105, .1);
+    padding: 20px 0 30px 0;
+}
+.formRegisterOrder input {
+    font-size: 26px;
+}
+.formRegisterOrder button{
+    background-color: black;
+    color:white;
+    height: 35px;
+    width: 160px;
+    font-size: 18px;
+    border: 0;
+    border-radius: 20px;
+}
+.formRegisterOrder button:hover{
+    background-color: palegreen;
+    color: black;
+    border: 2px solid black;
+    font-size: 18px;
+}

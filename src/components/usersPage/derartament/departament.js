@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Header from "../header/header";
 import { getData } from "../../requests.js";
 import { Link } from "react-router-dom";
-import Season from "./blocks/season";
 import "./department.css";
 import "./catalog.css";
 class Departments extends Component {
@@ -14,19 +13,29 @@ class Departments extends Component {
   }
 
   async componentDidMount() {
-    getData(`/category/${1}`).then(data => {
+    getData(`/category/1`).then(data => {
+      console.log(data);
       this.setState({ data });
     });
   }
 
   render() {
     let { data } = this.state;
-    let id = this.props.match.params.id;
+    console.log(this.state.data);
     return (
       <div className="usersPage">
         <div className="containerUsers">
           <Header />
-          <div className="catalog">
+          <div
+            className="catalog"
+            style={{
+              width: "100%",
+              minHeight: "450px",
+              background: `url(https://i.imgur.com/zSVbdhA.jpg)no-repeat`,
+              margin: "0 auto",
+              backgroundSize: "100%"
+            }}
+          >
             <h3 className="catalog_title col-12">
               Мы выбрали лучшие решения для того чтобы подчеркнуть Твой стиль!
               <br />
@@ -36,7 +45,7 @@ class Departments extends Component {
               {data &&
                 data.subCategories &&
                 data.subCategories.map((item, index) =>
-                  index < 6 ? (
+                  index < 6 && !item.description ? (
                     <Link to={`/category/${item.id}`} key={item.id}>
                       <div className="catalog_block col-11">
                         <img
@@ -53,7 +62,53 @@ class Departments extends Component {
                 )}
             </div>
           </div>
-          <Season id={id} />
+          <div className="seasonsContainer">
+            <div className="seasons">
+              <h4 className="seasons_title">сезонные решения</h4>
+              {data &&
+                data.subCategories &&
+                data.subCategories.map((item, index) =>
+                  index < 6 && item.description ? (
+                    <Link
+                      to={`/category/${item.id}`}
+                      key={item.id}
+                      className="season"
+                    >
+                      <img
+                        className="card-img-top"
+                        src={item.image}
+                        alt="seasonImage"
+                      />
+                      <div className="card-body seasons_text_block">
+                        {item.name}
+                      </div>
+                    </Link>
+                  ) : null
+                )}
+              {/* <div className="season">
+                <img
+                  className="card-img-top"
+                  src={seasonImg2}
+                  alt="seasonImage"
+                />
+                <div className="card-body seasons_text_block">Зима</div>
+              </div>
+
+              <div className="season">
+                <img
+                  className="card-img-top"
+                  src={seasonImg3}
+                  alt="seasonImage"
+                />
+                <div className="card-body seasons_text_block ">Осень/весна</div>
+                  </div>*/}
+            </div>
+            <div className="seasons-see">
+              <button className=" seasons-btn btn btn-dark">
+                смотреть все
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     );
