@@ -45,7 +45,7 @@ class Departments extends Component {
               {data &&
                 data.subCategories &&
                 data.subCategories.map((item, index) =>
-                  index < 6 && !item.description ? (
+                  index < 9 && !item.description ? (
                     <Link to={`/category/${item.id}`} key={item.id}>
                       <div className="catalog_block col-11">
                         <img
@@ -68,7 +68,7 @@ class Departments extends Component {
               {data &&
                 data.subCategories &&
                 data.subCategories.map((item, index) =>
-                  index < 6 && item.description ? (
+                  index < 3 && item.description ? (
                     <Link
                       to={`/category/${item.id}`}
                       key={item.id}

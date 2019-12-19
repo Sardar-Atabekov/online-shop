@@ -21,7 +21,6 @@ class Departments extends Component {
 
   render() {
     let { data } = this.state;
-    console.log(this.state.data);
     return (
       <div className="usersPage">
         <div className="containerUsers">
@@ -45,8 +44,9 @@ class Departments extends Component {
               {data &&
                 data.subCategories &&
                 data.subCategories.map((item, index) =>
-                  index < 6 && !item.description ? (
+                  index < 9 && !item.description ? (
                     <Link to={`/category/${item.id}`} key={item.id}>
+                      {console.log(index)}
                       <div className="catalog_block col-11">
                         <img
                           className="catalog_img"
@@ -68,7 +68,7 @@ class Departments extends Component {
               {data &&
                 data.subCategories &&
                 data.subCategories.map((item, index) =>
-                  index < 6 && item.description ? (
+                  index < 3 && item.description ? (
                     <Link
                       to={`/category/${item.id}`}
                       key={item.id}

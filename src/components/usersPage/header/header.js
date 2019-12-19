@@ -66,11 +66,10 @@ class Header extends React.Component {
               {data ? (
                 data.map((item, index) =>
                   index < 2 ? (
-                    <div className="header_link-block">
+                    <div className="header_link-block" key={item.id}>
                       <Link
                         className="header_link"
                         to={`/department/${item.id}`}
-                        key={item.id}
                       >
                         {item.name}
                       </Link>
@@ -78,13 +77,25 @@ class Header extends React.Component {
                   ) : null
                 )
               ) : (
-                <div className="">
-                  <Link className="header_link" to={`/department/${1}`} key={1}>
-                    WOMEN
-                  </Link>
-                  <Link className="header_link" to={`/department/${2}`} key={2}>
-                    MEN
-                  </Link>
+                <div className="departmentsLinks">
+                  <div className="header_link-block">
+                    <Link
+                      className="header_link"
+                      to={`/department/${1}`}
+                      key={1}
+                    >
+                      WOMEN
+                    </Link>
+                  </div>
+                  <div className="header_link-block">
+                    <Link
+                      className="header_link"
+                      to={`/department/${2}`}
+                      key={2}
+                    >
+                      MEN
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>

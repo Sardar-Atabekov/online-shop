@@ -2,10 +2,12 @@
     display: flex;
     flex-direction: column;
 }
+
 .seasonsContainer {
     display: flex;
     flex-direction: column;
 }
+
 .seasons {
     display: flex;
     flex-direction: row;
@@ -24,9 +26,11 @@
 .season .card-img-top {
     width: 100%;
 }
+
 .card-img-top {
     widows: 100%;
 }
+
 .seasons_title {
     flex: 0 0 100%;
     max-width: 100%;
@@ -42,6 +46,10 @@
     font-weight: bold;
     font-size: 20px;
     padding-bottom: 15px;
+}
+
+.catalog_text {
+    color: black;
 }
 
 .seasons-see {
