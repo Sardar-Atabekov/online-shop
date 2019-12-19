@@ -24,7 +24,6 @@ class App extends Component {
           <Route exact path="/admin/category" component={Categories} />
           <Route exact path="/admin/products" component={Products} />
           <Route exact path="/admin/addProduct" component={AddProduct} />
-
           <Route exact path="/department/:id" component={Department} />
           <Route exact path="/category/:id" component={Category} />
           <Route exact path="/product/:id" component={Product} />

@@ -150,3 +150,26 @@
     margin-top: 40px;
     background: #ececec;
 }
+
+.madeOrderBasket {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+.madeOrderBasketButton {
+    background-color: black;
+    color:white;
+    height: 30px;
+    width: 150px;
+    font-size: 15px;
+    border: 0;
+    border-radius: 20px;
+}
+.madeOrderBasketButton:hover {
+    background-color: palegreen;
+    color: black;
+    border: 2px solid black;
+}
+
