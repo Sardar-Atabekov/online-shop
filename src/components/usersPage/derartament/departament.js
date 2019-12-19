@@ -13,8 +13,8 @@ class Departments extends Component {
     };
   }
 
-  async componentDidUpdate() {
-    getData(`/category/${this.props.match.params.id}`).then(data => {
+  async componentDidMount() {
+    getData(`/category/${1}`).then(data => {
       this.setState({ data });
     });
   }
@@ -49,9 +49,7 @@ class Departments extends Component {
                         </div>
                       </div>
                     </Link>
-                  ) : (
-                    false
-                  )
+                  ) : null
                 )}
             </div>
           </div>

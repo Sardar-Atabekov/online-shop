@@ -69,6 +69,8 @@ const AddProduct = () => {
   function add() {
     postData("/product/", product);
   }
+  console.log(JSON.stringify(product));
+
   let categorySelect = category;
   console.log(categorySelect);
   console.log(selectDp);

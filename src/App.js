@@ -1,16 +1,17 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
-import MainPage from './components/usersPage/mainPage/mainPage.js';
-import Departments from "./components/adminpage/departments/departments";
-import Categories from "./components/adminpage/categories/categories";
-import Products from "./components/adminpage/products/products";
-import AddProduct from "./components/adminpage/products/addProduct";
 import NotFound from "./components/404/404";
 import Login from "./components/loginpage/login";
-import Department from "./components/usersPage/derartament/departament";
-import Category from './components/usersPage/category/category';
-import Product from "./components/usersPage/product/products";
+import { Route, Switch } from "react-router-dom";
 import Basket from "./components/usersPage/basket/basket";
+import Product from "./components/usersPage/product/products";
+import Category from "./components/usersPage/category/category";
+import Products from "./components/adminpage/products/products";
+import MainPage from "./components/usersPage/mainPage/mainPage.js";
+import AddProduct from "./components/adminpage/products/addProduct";
+import Categories from "./components/adminpage/categories/categories";
+import Department from "./components/usersPage/derartament/departament";
+import Department2 from "./components/usersPage/derartament2/departament";
+import Departments from "./components/adminpage/departments/departments";
 import "./App.css";
 
 class App extends Component {
@@ -24,7 +25,8 @@ class App extends Component {
           <Route exact path="/admin/category" component={Categories} />
           <Route exact path="/admin/products" component={Products} />
           <Route exact path="/admin/addProduct" component={AddProduct} />
-          <Route exact path="/department/:id" component={Department} />
+          <Route exact path="/department/1" component={Department} />
+          <Route exact path="/department/2" component={Department2} />
           <Route exact path="/category/:id" component={Category} />
           <Route exact path="/product/:id" component={Product} />
           <Route exact path="/basket/" component={Basket} />

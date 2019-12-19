@@ -73,7 +73,26 @@ class Header extends React.Component {
                     >
                       {item.name}
                     </Link>
-                  ) : null
+                  ) : (
+                    <div>
+                      <Link to={`/category/${item.id}`} key={item.id}>
+                        <div className="catalog_block col-11">
+                          <img className="catalog_img" alt="catalog-img" />
+                          <div className="catalog_text_block">
+                            <p className="catalog_text">MEN</p>
+                          </div>
+                        </div>
+                      </Link>
+                      <Link to={`/category/${item.id}`} key={item.id}>
+                        <div className="catalog_block col-11">
+                          <img className="catalog_img" alt="catalog-img" />
+                          <div className="catalog_text_block">
+                            <p className="catalog_text">WOMEN</p>
+                          </div>
+                        </div>
+                      </Link>
+                    </div>
+                  )
                 )}
             </div>
 

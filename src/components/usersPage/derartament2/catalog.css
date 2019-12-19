@@ -1,0 +1,65 @@
+.catalog{
+  width: 100%;
+  min-height:450px;
+  background:url("./img/bacground.jpg")no-repeat  ;
+  background-size:cover;
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+
+.catalog_items_wrapper {
+  width: 99%;
+}
+.catalog_img{
+  width: 100%;
+  height: 85%;
+}
+.catalog_title{
+  margin-top: 2%;
+  margin-bottom: 2%;
+  color: #fff;
+  text-align: center;
+  flex: 0 0 100%;
+  max-width: 100%;
+  font-weight: bold;
+  font-size: 1.75rem;
+}
+.catalog_block{
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 210px;
+  height: 300px;
+}
+.catalog_text_block{
+  background-color: #fff;
+  width: 100%;
+}
+.catalog_text{
+  font-weight: bold;
+  line-height: 45px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+font-family:"arial";
+}
+.catalog-btn{
+  margin: 0 auto;
+  font-weight: bold;
+  margin-bottom: 2%;
+  margin-top: 2%;
+   font-size: 1rem;
+font-family:"arial";
+}
+.containerUsers {
+  display: flex;
+  flex-direction: column;
+}
+
+.col-11 {
+  padding-right: 15px;
+    padding-left: 15px;
+}
+
+.catalog_text {
+  margin: 0px;
+}

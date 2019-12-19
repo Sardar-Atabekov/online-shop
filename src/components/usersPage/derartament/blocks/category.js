@@ -11,7 +11,7 @@ class CategoryBlock extends React.Component {
     };
   }
 
-  async componentDidUpdate() {
+  async componentDidMount() {
     getData(`/category/${this.props.id}`).then(data => {
       this.setState({ data });
     });
