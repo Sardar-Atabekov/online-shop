@@ -12,6 +12,7 @@ import Categories from "./components/adminpage/categories/categories";
 import Department from "./components/usersPage/derartament/departament";
 import Department2 from "./components/usersPage/derartament2/departament";
 import Departments from "./components/adminpage/departments/departments";
+import Collection from "./components/adminpage/callection/categories";
 import "./App.css";
 
 class App extends Component {
@@ -25,6 +26,7 @@ class App extends Component {
           <Route exact path="/admin/category" component={Categories} />
           <Route exact path="/admin/products" component={Products} />
           <Route exact path="/admin/addProduct" component={AddProduct} />
+          <Route exact path="/admin/collection" component={Collection} />
           <Route exact path="/department/1" component={Department} />
           <Route exact path="/department/2" component={Department2} />
           <Route exact path="/category/:id" component={Category} />

@@ -13,6 +13,7 @@ export default class CatalogPageComponent extends React.Component {
 
   async componentDidMount() {
     getData(`/product/subCategory/${this.props.match.params.id}`).then(data => {
+      data = data.filter(item => item.description);
       this.setState({ data });
     });
   }
