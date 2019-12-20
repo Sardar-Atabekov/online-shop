@@ -6,6 +6,7 @@ import Footer from "../footer/footer.js";
 import Category from "./addCategory";
 
 import "./categories.css";
+import Loading from "../../loading/loading";
 
 class Categories extends Component {
   constructor(props) {
@@ -13,7 +14,8 @@ class Categories extends Component {
     this.state = {
       body: [],
       data: [],
-      dp: []
+      dp: [],
+      isLoading: false
     };
 
     this.changeSelectDepartment = this.changeSelectDepartment.bind(this);
@@ -51,7 +53,7 @@ class Categories extends Component {
   async componentDidMount() {
     getData("/subCategory/all/").then(body => {
       body = body.filter(a => a.description);
-      this.setState({ body });
+      this.setState({ body, isLoading: true });
     });
     getData("/category/all/").then(dp => {
       this.setState({ dp });
@@ -69,86 +71,91 @@ class Categories extends Component {
           <header className="main-search">
             <Search />
           </header>
-          <main className="categoriesContent">
-            <div className="addCategories">
-              <Category />
-              <div className="selectDepartment">
-                <label htmlFor="department">По департаментам: </label>
-                <select
-                  className="select"
-                  onChange={this.changeSelectDepartment}
-                  id="department"
-                >
-                  <option value="all">Все</option>
-                  {this.state.dp.length > 0 &&
-                    this.state.dp.map(department => (
-                      <option value={department.id} key={department.id}>
-                        {department.name}
-                      </option>
-                    ))}
-                </select>
+          {this.state.isLoading ? (
+            <main className="categoriesContent">
+              <div className="addCategories">
+                <Category />
+                <div className="selectDepartment">
+                  <label htmlFor="department">По департаментам: </label>
+                  <select
+                    className="select"
+                    onChange={this.changeSelectDepartment}
+                    id="department"
+                  >
+                    <option value="all">Все</option>
+                    {this.state.dp.length > 0 &&
+                      this.state.dp.map(department => (
+                        <option value={department.id} key={department.id}>
+                          {department.name}
+                        </option>
+                      ))}
+                  </select>
+                </div>
               </div>
-            </div>
-            <div className="listItem">
-              {data &&
-                data.map(category => (
-                  <form className="item" key={category.id}>
-                    <img src={category.image} alt={category.name} />
-                    <input
-                      type="text"
-                      className="input  imageInput"
-                      defaultValue={category.name}
-                    />
-                    <select
-                      className="select active"
-                      name="name"
-                      defaultValue={category.active}
-                    >
-                      <option value="true">Есть</option>
-                      <option value="false">Скрыта</option>
-                    </select>
-                    <input
-                      name="image"
-                      type="text"
-                      className="input imageInput"
-                      defaultValue={category.image}
-                    />
-                    {this.state.dp.length > 0 ? (
+              <div className="listItem">
+                {data &&
+                  data.map(category => (
+                    <form className="item" key={category.id}>
+                      <img src={category.image} alt={category.name} />
+                      <input
+                        type="text"
+                        className="input  imageInput"
+                        defaultValue={category.name}
+                      />
                       <select
-                        className="select departmentSelect"
-                        name="category_id"
-                        defaultValue={category.category_id}
+                        className="select active"
+                        name="name"
+                        defaultValue={category.active}
                       >
-                        {this.state.dp.map(department => (
-                          <option value={department.id} key={department.id}>
-                            {department.name}
-                          </option>
-                        ))}
+                        <option value="true">Есть</option>
+                        <option value="false">Скрыта</option>
                       </select>
-                    ) : (
-                      ""
-                    )}
-                    <input
-                      type="button"
-                      className="changeBtn"
-                      onClick={event =>
-                        this.changeCategoryClick(event, category.id)
-                      }
-                      value="Изменить"
-                    />
-                    <input
-                      type="button"
-                      className="deleteBtn divDelete"
-                      value="Удалить"
-                      onClick={event => {
-                        deleteData(`/subCategory/${category.id}`);
-                        event.target.parentNode.remove();
-                      }}
-                    />
-                  </form>
-                ))}
-            </div>
-          </main>
+                      <input
+                        name="image"
+                        type="text"
+                        className="input imageInput"
+                        defaultValue={category.image}
+                      />
+                      {this.state.dp.length > 0 ? (
+                        <select
+                          className="select departmentSelect"
+                          name="category_id"
+                          defaultValue={category.category_id}
+                        >
+                          {this.state.dp.map(department => (
+                            <option value={department.id} key={department.id}>
+                              {department.name}
+                            </option>
+                          ))}
+                        </select>
+                      ) : (
+                        ""
+                      )}
+                      <input
+                        type="button"
+                        className="changeBtn"
+                        onClick={event =>
+                          this.changeCategoryClick(event, category.id)
+                        }
+                        value="Изменить"
+                      />
+                      <input
+                        type="button"
+                        className="deleteBtn divDelete"
+                        value="Удалить"
+                        onClick={event => {
+                          deleteData(`/subCategory/${category.id}`);
+                          event.target.parentNode.remove();
+                        }}
+                      />
+                    </form>
+                  ))}
+              </div>
+            </main>
+          ) : (
+            <Loading />
+          )}
+
           <footer className="main-footer">
             <Footer />
           </footer>

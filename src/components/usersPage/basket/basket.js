@@ -1,9 +1,10 @@
 import React from "react";
 import { getData } from "../../requests.js";
 import { Link } from "react-router-dom";
+import Loading from "./../../loading/loading";
 import Header from "./../header/header";
-import "./basket.css";
 import RegisterOrder from "./registOrder";
+import "./basket.css";
 export default class CatalogPageComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -11,7 +12,8 @@ export default class CatalogPageComponent extends React.Component {
       data: [],
       total: null,
       message: null,
-      isInCreation: false
+      isInCreation: false,
+      isLoading: false
     };
     this.deleteInBasket = this.deleteInBasket.bind(this);
   }
@@ -30,9 +32,9 @@ export default class CatalogPageComponent extends React.Component {
       }, initialValue);
       this.setState({ total });
       if (arr.length > 0) {
-        this.setState({ data: arr });
+        this.setState({ data: arr, isLoading: true });
       } else {
-        this.setState({ message: "Корзина пуста" });
+        this.setState({ message: "Корзина пуста", isLoading: true });
       }
     });
   }
@@ -56,128 +58,134 @@ export default class CatalogPageComponent extends React.Component {
     return (
       <div className="category">
         <Header />
-        {data.length === 0 ? (
-          <div className="clearBasket">
-            <h1>{this.state.message}</h1>
-          </div>
-        ) : (
-          <div>
-            <div className="totalList">
-              <div className="titleTotal">
-                <h1>ОБЩАЯ СТОИМОСТЬ</h1>
-                <span>{data.length} товара</span>
-              </div>
-              <div className="priceBasketWrapper">
-                {data.map(product => (
-                  <div className="priceBasket" key={product.id}>
-                    <span className="priceBasketName">{product.name}</span>
-                    <span className="unitPrice">
-                      {product.productInfos[0].unitPrice} сом
-                    </span>
-                  </div>
-                ))}
-                <div className="priceBasket">
-                  <span>ИТОГО</span>
-                  <span>{this.state.total}</span>
-                </div>
-
-                <div>
-                  {isInCreation === false ? (
-                    <div className="madeOrderBasket">
-                      <button
-                        onClick={() => this.setState({ isInCreation: true })}
-                        className="madeOrderBasketButton"
-                      >
-                        Оформить Заказ
-                      </button>
-                    </div>
-                  ) : (
-                    <div className="madeOrderBasket">
-                      <button
-                        onClick={() => this.setState({ isInCreation: false })}
-                        className="madeOrderBasketButton"
-                      >
-                        Отмена
-                      </button>
-                    </div>
-                  )}
-                </div>
-              </div>
+        {this.state.isLoading ? (
+          data.length === 0 ? (
+            <div className="clearBasket">
+              <h1>{this.state.message}</h1>
             </div>
+          ) : (
             <div>
-              {isInCreation === false ? (
-                <div>
-                  {" "}
-                  <div className="basketWrapper">
-                    <div className="titleBasket">
-                      <h1>В КОРЗИНЕ СЕЙЧАС</h1>
+              <div className="totalList">
+                <div className="titleTotal">
+                  <h1>ОБЩАЯ СТОИМОСТЬ</h1>
+                  <span>{data.length} товара</span>
+                </div>
+                <div className="priceBasketWrapper">
+                  {data.map(product => (
+                    <div className="priceBasket" key={product.id}>
+                      <span className="priceBasketName">{product.name}</span>
+                      <span className="unitPrice">
+                        {product.productInfos[0].unitPrice} сом
+                      </span>
                     </div>
-                    <div className="basketContainer">
-                      <ul className="basketList">
-                        {data.map(product => (
-                          <li key={product.id} className="basketProduct">
-                            <div className="visual">
-                              <Link
-                                to={`product/${product.id}`}
-                                className="j-fast-view-btn"
-                              >
-                                <img
-                                  src={product.productInfos[0].images[0].url}
-                                  alt={product.name}
-                                />
-                              </Link>
-                            </div>
-                            <div className="content">
-                              <strong className="strongTitle">
+                  ))}
+                  <div className="priceBasket">
+                    <span>ИТОГО</span>
+                    <span>{this.state.total}</span>
+                  </div>
+
+                  <div>
+                    {isInCreation === false ? (
+                      <div className="madeOrderBasket">
+                        <button
+                          onClick={() => this.setState({ isInCreation: true })}
+                          className="madeOrderBasketButton"
+                        >
+                          Оформить Заказ
+                        </button>
+                      </div>
+                    ) : (
+                      <div className="madeOrderBasket">
+                        <button
+                          onClick={() => this.setState({ isInCreation: false })}
+                          className="madeOrderBasketButton"
+                        >
+                          Отмена
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+              <div>
+                {isInCreation === false ? (
+                  <div>
+                    {" "}
+                    <div className="basketWrapper">
+                      <div className="titleBasket">
+                        <h1>В КОРЗИНЕ СЕЙЧАС</h1>
+                      </div>
+                      <div className="basketContainer">
+                        <ul className="basketList">
+                          {data.map(product => (
+                            <li key={product.id} className="basketProduct">
+                              <div className="visual">
                                 <Link
                                   to={`product/${product.id}`}
                                   className="j-fast-view-btn"
                                 >
-                                  {product.name}
+                                  <img
+                                    src={product.productInfos[0].images[0].url}
+                                    alt={product.name}
+                                  />
                                 </Link>
-                              </strong>
-                              <div className="mb"></div>
-                              <dl>
-                                <dt>Цвет: </dt>
-                                <dd> {product.productInfos[0].color}</dd>
-                              </dl>
-                              <dl>
-                                <dt>Размер:</dt>
-                                <dd>{product.productInfos[0].size}</dd>
-                              </dl>
-                              <dl>
-                                <dt className="availability">
-                                  {product.inStock
-                                    ? "Есть в наличии"
-                                    : "Нету в наличии"}
-                                </dt>
-                              </dl>
-                              <div className="mb"></div>
-                              <dl>
-                                <dt style={{ fontWeight: "bold" }}>1 шт</dt>
-                                <dd>{product.productInfos[0].unitPrice}сом</dd>
-                              </dl>
-                            </div>
-                            <div
-                              className="deleteInBasket"
-                              onClick={() => this.deleteInBasket(product.id)}
-                            >
-                              Удалить
-                            </div>
-                          </li>
-                        ))}
-                      </ul>
+                              </div>
+                              <div className="content">
+                                <strong className="strongTitle">
+                                  <Link
+                                    to={`product/${product.id}`}
+                                    className="j-fast-view-btn"
+                                  >
+                                    {product.name}
+                                  </Link>
+                                </strong>
+                                <div className="mb"></div>
+                                <dl>
+                                  <dt>Цвет: </dt>
+                                  <dd> {product.productInfos[0].color}</dd>
+                                </dl>
+                                <dl>
+                                  <dt>Размер:</dt>
+                                  <dd>{product.productInfos[0].size}</dd>
+                                </dl>
+                                <dl>
+                                  <dt className="availability">
+                                    {product.inStock
+                                      ? "Есть в наличии"
+                                      : "Нету в наличии"}
+                                  </dt>
+                                </dl>
+                                <div className="mb"></div>
+                                <dl>
+                                  <dt style={{ fontWeight: "bold" }}>1 шт</dt>
+                                  <dd>
+                                    {product.productInfos[0].unitPrice}сом
+                                  </dd>
+                                </dl>
+                              </div>
+                              <div
+                                className="deleteInBasket"
+                                onClick={() => this.deleteInBasket(product.id)}
+                              >
+                                Удалить
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ) : (
-                <RegisterOrder
-                  data={this.state.data}
-                  total={this.state.total}
-                />
-              )}
+                ) : (
+                  <RegisterOrder
+                    data={this.state.data}
+                    total={this.state.total}
+                  />
+                )}
+              </div>
             </div>
-          </div>
+          )
+        ) : (
+          <Loading />
         )}
       </div>
     );

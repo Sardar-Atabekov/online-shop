@@ -6,6 +6,7 @@ import Search from "../search/search.js";
 import Footer from "../footer/footer.js";
 import NamePage from "../blocks/namePage";
 import "./products.css";
+import Loading from "../../loading/loading";
 
 class Products extends Component {
   constructor(props) {
@@ -15,7 +16,8 @@ class Products extends Component {
       data: [],
       select: null,
       dp: [],
-      category: []
+      category: [],
+      isLoading: false
     };
 
     this.categoryName = this.categoryName.bind(this);
@@ -23,7 +25,7 @@ class Products extends Component {
 
   async componentDidMount() {
     getData("/product/all/").then(body => {
-      this.setState({ body });
+      this.setState({ body, isLoading: true });
     });
     getData("/subCategory/all/").then(category => {
       this.setState({ category });
@@ -55,12 +57,13 @@ class Products extends Component {
           <header className="main-search">
             <Search />
           </header>
-          <main className="productsPage">
-            <div className="addProducts">
-              <NamePage name="Products Page" />
-              <Link to={"addProduct"}>Добавить</Link>
-              <div className="filterProduct">
-                {/* <div className="form-group">
+          {this.state.isLoading ? (
+            <main className="productsPage">
+              <div className="addProducts">
+                <NamePage name="Products Page" />
+                <Link to={"addProduct"}>Добавить</Link>
+                <div className="filterProduct">
+                  {/* <div className="form-group">
                   <label htmlFor="inCategory">Категория</label>
                   <select
                     id="inCategory"
@@ -78,49 +81,52 @@ class Products extends Component {
                       : ""}
                   </select>
                 </div> */}
+                </div>
               </div>
-            </div>
-            <div className="listItem">
-              {data &&
-                data.map(product => (
-                  <div className="item" key={product.id}>
-                    <Link to={`/product/${product.id}`} className="imageLink">
-                      <img
-                        src={product.productInfos[0].images[0].url}
-                        alt={product.name}
-                      />
-                    </Link>
+              <div className="listItem">
+                {data &&
+                  data.map(product => (
+                    <div className="item" key={product.id}>
+                      <Link to={`/product/${product.id}`} className="imageLink">
+                        <img
+                          src={product.productInfos[0].images[0].url}
+                          alt={product.name}
+                        />
+                      </Link>
 
-                    <input
-                      type="text"
-                      className="input  imageInput"
-                      defaultValue={product.name}
-                    />
-                    <select
-                      className="select active"
-                      name="name"
-                      defaultValue={product.inStock}
-                    >
-                      <option value="true">Есть</option>
-                      <option value="false">Скрыта</option>
-                    </select>
-                    {/* <div className="">{this.categoryName(product.subCategory)}</div> */}
-                    <Link to={`product/${product.id}/`} className="changeBtn">
-                      Изменить
-                    </Link>
-                    <input
-                      type="button"
-                      className="deleteBtn divDelete"
-                      value="Удалить"
-                      onClick={event => {
-                        deleteData(`/product/${product.id}`);
-                        event.target.parentNode.remove();
-                      }}
-                    />
-                  </div>
-                ))}
-            </div>
-          </main>
+                      <input
+                        type="text"
+                        className="input  imageInput"
+                        defaultValue={product.name}
+                      />
+                      <select
+                        className="select active"
+                        name="name"
+                        defaultValue={product.inStock}
+                      >
+                        <option value="true">Есть</option>
+                        <option value="false">Скрыта</option>
+                      </select>
+                      {/* <div className="">{this.categoryName(product.subCategory)}</div> */}
+                      <Link to={`product/${product.id}/`} className="changeBtn">
+                        Изменить
+                      </Link>
+                      <input
+                        type="button"
+                        className="deleteBtn divDelete"
+                        value="Удалить"
+                        onClick={event => {
+                          deleteData(`/product/${product.id}`);
+                          event.target.parentNode.remove();
+                        }}
+                      />
+                    </div>
+                  ))}
+              </div>
+            </main>
+          ) : (
+            <Loading />
+          )}
           <footer className="main-footer">
             <Footer />
           </footer>

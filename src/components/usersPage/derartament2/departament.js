@@ -4,18 +4,20 @@ import { getData } from "../../requests.js";
 import { Link } from "react-router-dom";
 import "./department.css";
 import "./catalog.css";
+import Loading from "../../loading/loading";
 class Departments extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: [],
+      isLoading: false
     };
   }
 
   async componentDidMount() {
     getData(`/category/2`).then(data => {
       console.log(data);
-      this.setState({ data });
+      this.setState({ data, isLoading: true });
     });
   }
 
@@ -41,26 +43,30 @@ class Departments extends Component {
               <br />
               Выбор за Тобой!
             </h3>
-            <div className="catalog_items_wrapper container">
-              {data &&
-                data.subCategories &&
-                data.subCategories.map((item, index) =>
-                  index < 9 && !item.description ? (
-                    <Link to={`/category/${item.id}`} key={item.id}>
-                      <div className="catalog_block col-11">
-                        <img
-                          className="catalog_img"
-                          src={item.image}
-                          alt="catalog-img"
-                        />
-                        <div className="catalog_text_block">
-                          <p className="catalog_text">{item.name}</p>
+            {this.state.isLoading ? (
+              <div className="catalog_items_wrapper container">
+                {data &&
+                  data.subCategories &&
+                  data.subCategories.map((item, index) =>
+                    index < 9 && !item.description ? (
+                      <Link to={`/category/${item.id}`} key={item.id}>
+                        <div className="catalog_block col-11">
+                          <img
+                            className="catalog_img"
+                            src={item.image}
+                            alt="catalog-img"
+                          />
+                          <div className="catalog_text_block">
+                            <p className="catalog_text">{item.name}</p>
+                          </div>
                         </div>
-                      </div>
-                    </Link>
-                  ) : null
-                )}
-            </div>
+                      </Link>
+                    ) : null
+                  )}
+              </div>
+            ) : (
+              <Loading />
+            )}
           </div>
           <div className="seasonsContainer">
             <div className="seasons">
