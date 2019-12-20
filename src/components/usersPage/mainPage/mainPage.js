@@ -9,73 +9,94 @@ import Slider from "./sliders/mainSlider";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./mainPage.css";
+import Loading from "../../loading/loading";
 
 const MainPageComponent = () => {
   const [tagData, setTagData] = useState({});
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     // Axios.get(https://eshopss.herokuapp.com/tag/all).then(res => {
     //   const data = res.data;
     //   setTagData(data);
     // });
-    axios.get(`https://eshopss.herokuapp.com/tag/all`).then(res => {
-      const data = res.data;
-      setTagData(data);
-    });
+    axios
+      .get(`https://my-demo-e-shop.herokuapp.com/subCategory/all`)
+      .then(res => {
+        const data = res.data;
+        setTagData(data);
+        setLoading(true);
+      });
   }, []);
+  console.log(tagData);
   return (
     <div>
       <Header />
-      <div className="slider_wrapper">
-        <Slider />
-      </div>
-
-      <div className="containerMainPage">
-        <div className="leftPartOfMainPage">
-          <div className="headerLeftImageMainPage">
-            <div className="topLeftLeftImageMainPage">
-              <img
-                src="https://st.depositphotos.com/1000824/5031/i/950/depositphotos_50311455-stock-photo-beautiful-young-woman-in-colorful.jpg"
-                width="265px"
-                height="330px"
-                alt="boy header"
-              />
-            </div>
-            <div className="topRightLeftImageMainPage">
-              <img
-                src="https://st.depositphotos.com/1480128/2921/i/950/depositphotos_29212687-stock-photo-teenager-girl-in-a-dress.jpg"
-                width="265px"
-                height="330px"
-                alt="girl header"
-              />
-            </div>
+      {loading ? (
+        <div>
+          <div className="slider_wrapper">
+            <Slider />
           </div>
-          <div className="middleLeftImageMainPage">
-            <img
-              src="https://odezhda.guru/wp-content/uploads/2018/05/Muzhskaya-odezhda-2.jpg"
-              width="550px"
-              height="230px"
-              alt="girl header"
-            />
-          </div>
-          <div className="bottomLeftImageMainPage">
-            <img
-              src="https://images.unsplash.com/photo-1573649027949-e83a2e6451b1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
-              width="550px"
-              height="261px"
-              alt="girl header"
-            />
+          <div className="containerMainPage">
+            <div className="leftPartOfMainPage">
+              <div className="headerLeftImageMainPage">
+                <div className="topLeftLeftImageMainPage">
+                  <Link to={`category/${tagData[17].id}`}>
+                    <img
+                      src={tagData[17].image}
+                      width="265px"
+                      height="330px"
+                      alt="boy header"
+                    />
+                  </Link>
+                </div>
+                <div className="topRightLeftImageMainPage">
+                  <Link to={`category/${tagData[18].id}`}>
+                    <img
+                      src={tagData[18].image}
+                      width="265px"
+                      height="330px"
+                      alt="girl header"
+                    />
+                  </Link>
+                </div>
+              </div>
+              <div className="middleLeftImageMainPage">
+                <Link to={`category/${tagData[19].id}`}>
+                  <img
+                    src={tagData[19].image}
+                    width="550px"
+                    height="230px"
+                    alt="girl header"
+                  />
+                </Link>
+              </div>
+              <div className="bottomLeftImageMainPage">
+                <Link to={`category/${tagData[20].id}`}>
+                  <img
+                    src={tagData[20].image}
+                    width="550px"
+                    height="261px"
+                    alt="girl header"
+                  />
+                </Link>
+              </div>
+            </div>
+            <div className="rightPartOfMainPage">
+              <Link to={`category/${tagData[7].id}`}>
+                <img
+                  src={tagData[7].image}
+                  height="850px"
+                  width="550px"
+                  alt="girl-main"
+                />
+              </Link>
+            </div>
           </div>
         </div>
-        <div className="rightPartOfMainPage">
-          <img
-            src="https://st2.depositphotos.com/5242463/10028/i/950/depositphotos_100280612-stock-photo-a-young-woman-walking-at.jpg"
-            height="850px"
-            width="550px"
-            alt="girl-main"
-          />
-        </div>
-      </div>
+      ) : (
+        <Loading />
+      )}
     </div>
   );
 };
