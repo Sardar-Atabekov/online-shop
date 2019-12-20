@@ -67,7 +67,14 @@ const AddProduct = () => {
   };
   console.log(product.images);
   function add() {
-    postData("/product/", product);
+    postData("/product/", product).then(res => {
+      console.log(res);
+      if (res.status !== "error" && res.status !== 400 && res.status !== 500) {
+        alert("Данные успешно добавлены!");
+      } else {
+        alert("Ошибка. Проверьте введенные данные");
+      }
+    });
   }
   console.log(JSON.stringify(product));
 

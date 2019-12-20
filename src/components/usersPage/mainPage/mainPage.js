@@ -1,26 +1,27 @@
 import Header from "../header/header";
 // import Slider from "./sliders/mainSlider";
 // import Blocks from "./blocks/blocks";
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Slider from "./sliders/mainSlider";
 // import { UncontrolledCarousel } from "reactstrap";
 // import "./mainPage.css";
 // import Footer from "../../footer/footer";
-// import axios from "axios";
-// import { Link } from "react-router-dom";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import "./mainPage.css";
 
 const MainPageComponent = () => {
-  // const [tagData, setTagData] = useState({});
+  const [tagData, setTagData] = useState({});
 
   useEffect(() => {
     // Axios.get(https://eshopss.herokuapp.com/tag/all).then(res => {
     //   const data = res.data;
     //   setTagData(data);
     // });
-    // axios.get(`https://eshopss.herokuapp.com/tag/all`).then(res => {
-    //   const data = res.data;
-    //   setTagData(data);
-    // });
+    axios.get(`https://eshopss.herokuapp.com/tag/all`).then(res => {
+      const data = res.data;
+      setTagData(data);
+    });
   }, []);
   return (
     <div>
@@ -28,79 +29,53 @@ const MainPageComponent = () => {
       <div className="slider_wrapper">
         <Slider />
       </div>
-      {/* <div className="container1 row my-5 ">
-        <div className="col-6 row">
-          <div className="col-6 mb-3 ">
-            {tagData.length > 0 ? (
-              <Link to={`/tag/${tagData[0].id}`}>
-                <img
-                  src={tagData[0].image}
-                  alt="tagImage"
-                  className="tag-images"
-                />
-              </Link>
-            ) : (
-              ""
-            )}
-          </div>
-          <div className="col-6 mb-3">
-            {tagData.length > 0 ? (
-              <Link to={`/tag/${tagData[1].id}`}>
-                <img
-                  src={tagData[1].image}
-                  alt="collection img"
-                  className="tag-images"
-                />
-              </Link>
-            ) : (
-              ""
-            )}
-          </div>
-          <div className="col-12 my-2 ">
-            {tagData.length > 0 ? (
-              <Link to={`/tag/${tagData[3].id}`}>
-                <img
-                  src={tagData[3].image}
-                  alt="collection img"
-                  className="tag-images"
-                />
-              </Link>
-            ) : (
-              ""
-            )}
-          </div>
-          <div className="col-12 my-3">
-            {tagData.length > 0 ? (
-              <Link to={`/tag/${tagData[2].id}`}>
-                <img
-                  src={tagData[2].image}
-                  alt="collection img"
-                  className="tag-images"
-                />
-              </Link>
-            ) : (
-              ""
-            )}
-          </div>
-        </div>
 
-        <div className="col-6 row">
-          <div className="col-12 mb-3 ">
-            {tagData.length > 0 ? (
-              <Link to={`/tag/${tagData[4].id}`}>
-                <img
-                  src={tagData[4].image}
-                  alt="collection img"
-                  className="tag-images"
-                />
-              </Link>
-            ) : (
-              ""
-            )}
+      <div className="containerMainPage">
+        <div className="leftPartOfMainPage">
+          <div className="headerLeftImageMainPage">
+            <div className="topLeftLeftImageMainPage">
+              <img
+                src="https://st.depositphotos.com/1000824/5031/i/950/depositphotos_50311455-stock-photo-beautiful-young-woman-in-colorful.jpg"
+                width="265px"
+                height="330px"
+                alt="boy header"
+              />
+            </div>
+            <div className="topRightLeftImageMainPage">
+              <img
+                src="https://st.depositphotos.com/1480128/2921/i/950/depositphotos_29212687-stock-photo-teenager-girl-in-a-dress.jpg"
+                width="265px"
+                height="330px"
+                alt="girl header"
+              />
+            </div>
+          </div>
+          <div className="middleLeftImageMainPage">
+            <img
+              src="https://odezhda.guru/wp-content/uploads/2018/05/Muzhskaya-odezhda-2.jpg"
+              width="550px"
+              height="230px"
+              alt="girl header"
+            />
+          </div>
+          <div className="bottomLeftImageMainPage">
+            <img
+              src="https://images.unsplash.com/photo-1573649027949-e83a2e6451b1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+              width="550px"
+              height="261px"
+              alt="girl header"
+            />
           </div>
         </div>
-      </div> */}
-      {/* <Footer /> */}
+        <div className="rightPartOfMainPage">
+          <img
+            src="https://st2.depositphotos.com/5242463/10028/i/950/depositphotos_100280612-stock-photo-a-young-woman-walking-at.jpg"
+            height="850px"
+            width="550px"
+            alt="girl-main"
+          />
+        </div>
+      </div>
     </div>
   );
 };
