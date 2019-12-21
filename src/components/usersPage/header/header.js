@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import Eshoplogo from "./img/e-shop(logo).svg";
 import Person from "./img/Person.svg";
-import Heart from "./img/l.svg";
+import Heart from "./img/like.png";
 import Cart from "./img/pocket.svg";
 import "./header.css";
 
@@ -114,11 +114,17 @@ class Header extends React.Component {
               <Link to="/" className="header_link">
                 <img src={Person} alt="logo" className="header_icons col-2" />
               </Link>
-              <Link to="/likes" className="header_link">
+              <Link to="/likes" className="header_link LikeLike" >
                 <img src={Heart} alt="logo" className="header_icons col-2" />
               </Link>
-              <Link to="/basket" className="header_link">
+              <Link to="/basket" className="header_link countBasket">
                 <img src={Cart} alt="logo" className="header_icons col-2" />
+                <div>
+                  {localStorage.getItem("keys") &&
+                  JSON.parse(localStorage.getItem("keys")).length > 0
+                    ? JSON.parse(localStorage.getItem("keys")).length
+                    : null}
+                </div>
               </Link>
             </div>
           </div>

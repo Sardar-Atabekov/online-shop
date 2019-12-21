@@ -2,6 +2,9 @@ import React from "react";
 import { getData } from "../../requests.js";
 import Header from "./../header/header";
 import AddBasket from "./../basket/addBasket";
+import AddLike from "./../likePage/addLike";
+import Like from "./../../images/Like.png";
+import noLike from "./../../images/noLike.png";
 import Footer from "./../../footer/footer";
 import "./product.css";
 
@@ -11,7 +14,9 @@ export default class Product extends React.Component {
     this.state = {
       data: [],
       select: 0,
-      message: "Добавить в корзину"
+      message: "Добавить в корзину",
+      messageLike: "Добавить в избранные",
+      like: false
     };
   }
 
@@ -76,16 +81,31 @@ export default class Product extends React.Component {
                     </select>
                   </div>
                 </div>
-                <button
-                  className="addBasket"
-                  onClick={event => {
-                    event.target.style.background = "green";
-                    this.setState({ message: "Добавлена" });
-                    AddBasket(product.id);
-                  }}
-                >
-                  {this.state.message}
-                </button>
+                <div className="likesBasket">
+                  <div className="LikeBasketBlock">
+                  <img
+                    src={this.state.like ? Like : noLike}
+                    alt={product.name}
+                    className="LikeImage"
+                    onClick={() => {
+                      this.state.like
+                        ? this.setState({ like: false })
+                        : this.setState({ like: true });
+                      AddLike(product.id);
+                    }}
+                  />
+                  </div>
+                  <button
+                    className="addBasket"
+                    onClick={event => {
+                      event.target.style.background = "green";
+                      this.setState({ message: "Добавлено" });
+                      AddBasket(product.id);
+                    }}
+                  >
+                    {this.state.message}
+                  </button>
+                </div>
               </div>
               {/* {data &&
             data.map(product => (

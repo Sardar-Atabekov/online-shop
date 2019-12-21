@@ -28,8 +28,16 @@ export default class RegisterOrder extends Component {
     const data = {
       address: this.state.adres + " " + this.state.city,
       userEmail: this.state.userEmail,
-      total: this.state.total
-      // orderItems: this.state.orderItems
+      total: this.state.total,
+      orderItems: [
+        {
+          id: this.state.orderItems.id,
+          price: 0,
+          product: 0,
+          quantity: 2,
+          total: 0
+        }
+      ]
     };
     console.log(data);
 

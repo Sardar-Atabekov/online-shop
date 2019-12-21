@@ -66,7 +66,12 @@
     margin-left: 20px;
     margin-top: 10px;
 }
-
+.likesBasket .Like {
+    margin-left: 230;
+}
+.LikeBasketBlock {
+    margin-left: 30px;
+}
 .addBasket {
     display: inline-block;
     font-weight: 400;
@@ -90,3 +95,4 @@
     border-radius: .25rem;
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
+

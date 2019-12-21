@@ -72,18 +72,17 @@ export default class CatalogPageComponent extends React.Component {
                 </div>
                 <div className="priceBasketWrapper">
                   {data.map(product => (
-                    <div className="priceBasket" key={product.id}>
+                    <ul className="priceBasket" key={product.id}>
                       <span className="priceBasketName">{product.name}</span>
                       <span className="unitPrice">
                         {product.productInfos[0].unitPrice} сом
                       </span>
-                    </div>
+                    </ul>
                   ))}
                   <div className="priceBasket">
                     <span>ИТОГО</span>
-                    <span>{this.state.total}</span>
+                    <span>{this.state.total} сом</span>
                   </div>
-
                   <div>
                     {isInCreation === false ? (
                       <div className="madeOrderBasket">
