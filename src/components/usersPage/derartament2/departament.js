@@ -31,71 +31,70 @@ class Departments extends Component {
           <Header />
           {/* {this.state.isLoading ? (
             <div style={{display:'flex', flexDirection:'column'}}> */}
-              <div
-                className="catalog"
-                style={{
-                  width: "100%",
-                  minHeight: "450px",
-                  background: `url(https://i.imgur.com/kgG5Vw5.jpg)no-repeat`,
-                  margin: "0 auto",
-                  backgroundSize: "100%"
-                }}
-              >
-                <h3 className="catalog_title col-12">
-                  Мы выбрали лучшие решения для того чтобы подчеркнуть Твой
-                  стиль!
-                  <br />
-                  Выбор за Тобой!
-                </h3>
-                {this.state.isLoading ? (
-                  <div className="catalog_items_wrapper container">
-                    {data &&
-                      data.subCategories &&
-                      data.subCategories.map((item, index) =>
-                        index < 9 && !item.description ? (
-                          <Link to={`/category/${item.id}`} key={item.id}>
-                            <div className="catalog_block col-11">
-                              <img
-                                className="catalog_img"
-                                src={item.image}
-                                alt="catalog-img"
-                              />
-                              <div className="catalog_text_block">
-                                <p className="catalog_text">{item.name}</p>
-                              </div>
-                            </div>
-                          </Link>
-                        ) : null
-                      )}
-                  </div>
-                ) : (
-                  <Loading />
-                )}
-              </div>
-              <div className="seasonsContainer">
-                <div className="seasons">
-                  <h4 className="seasons_title">сезонные решения</h4>
-                  {data &&
-                    data.subCategories &&
-                    data.subCategories.map((item, index) =>
-                      index < 3 && item.description ? (
-                        <Link
-                          to={`/category/${item.id}`}
-                          key={item.id}
-                          className="season"
-                        >
+          <div
+            className="catalog"
+            style={{
+              width: "100%",
+              minHeight: "450px",
+              background: `url(https://i.imgur.com/kgG5Vw5.jpg)no-repeat`,
+              margin: "0 auto",
+              backgroundSize: "100%"
+            }}
+          >
+            <h3 className="catalog_title col-12">
+              Мы выбрали лучшие решения для того чтобы подчеркнуть Твой стиль!
+              <br />
+              Выбор за Тобой!
+            </h3>
+            {this.state.isLoading ? (
+              <div className="catalog_items_wrapper container">
+                {data &&
+                  data.subCategories &&
+                  data.subCategories.map((item, index) =>
+                    index < 9 && !item.description ? (
+                      <Link to={`/category/${item.id}`} key={item.id}>
+                        <div className="catalog_block col-11">
                           <img
-                            className="card-img-top"
+                            className="catalog_img"
                             src={item.image}
-                            alt="seasonImage"
+                            alt="catalog-img"
                           />
-                          <div className="card-body seasons_text_block">
-                            {item.name}
+                          <div className="catalog_text_block">
+                            <p className="catalog_text">{item.name}</p>
                           </div>
-                        </Link>
-                      ) : null
-                    )}
-                  {/* <div className="season">
+                        </div>
+                      </Link>
+                    ) : null
+                  )}
+              </div>
+            ) : (
+              <Loading />
+            )}
+          </div>
+          <div className="seasonsContainer">
+            <div className="seasons">
+              <h4 className="seasons_title">сезонные решения</h4>
+              {data &&
+                data.subCategories &&
+                data.subCategories.map((item, index) =>
+                  index < 3 && item.description ? (
+                    <Link
+                      to={`/category/${item.id}`}
+                      key={item.id}
+                      className="season"
+                    >
+                      <img
+                        className="card-img-top"
+                        src={item.image}
+                        alt="seasonImage"
+                      />
+                      <div className="card-body seasons_text_block">
+                        {item.name}
+                      </div>
+                    </Link>
+                  ) : null
+                )}
+              {/* <div className="season">
                 <img
                   className="card-img-top"
                   src={seasonImg2}
@@ -112,19 +111,19 @@ class Departments extends Component {
                 />
                 <div className="card-body seasons_text_block ">Осень/весна</div>
                   </div>*/}
-                </div>
-                <div className="seasons-see">
-                  <button className=" seasons-btn btn btn-dark">
-                    смотреть все
-                  </button>
-                </div>
-              </div>
-            {/* </div>
+            </div>
+            <div className="seasons-see">
+              <button className=" seasons-btn btn btn-dark">
+                смотреть все
+              </button>
+            </div>
+          </div>
+          {/* </div>
           ) : (
             <Loading />
           )} */}
         </div>
-        <Footer/>
+        <Footer />
       </div>
     );
   }

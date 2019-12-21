@@ -4,7 +4,7 @@ import SocialIcon1 from "./img/Vector-1.svg";
 import SocialIcon2 from "./img/Vector-2.svg";
 import SocialIcon3 from "./img/Vector-3.svg";
 import SocialIcon4 from "./img/Vector.svg";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 import "./footer.css";
 export default class Footer extends Component {

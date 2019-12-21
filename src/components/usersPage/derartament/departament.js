@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import "./department.css";
 import "./catalog.css";
 import Loading from "../../loading/loading";
+import Footer from "./../../footer/footer";
 class Departments extends Component {
   constructor(props) {
     super(props);
@@ -116,6 +117,7 @@ class Departments extends Component {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

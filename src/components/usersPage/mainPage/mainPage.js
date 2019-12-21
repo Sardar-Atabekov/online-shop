@@ -10,6 +10,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "./mainPage.css";
 import Loading from "../../loading/loading";
+import Footer from "./../../footer/footer";
 
 const MainPageComponent = () => {
   const [tagData, setTagData] = useState({});
@@ -93,6 +94,8 @@ const MainPageComponent = () => {
               </Link>
             </div>
           </div>
+
+          <Footer />
         </div>
       ) : (
         <Loading />
