@@ -5,7 +5,7 @@ class Department extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [],
+      data: []
     };
   }
 
@@ -16,17 +16,15 @@ class Department extends Component {
   }
 
   render() {
-   
+    let { data } = this.state;
     return (
-      <select
-        className="select"
-        name="category_id"
-      >
-        {this.state.data.map(department => (
-          <option value={department.id} key={department.id}>
-            {department.name}
-          </option>
-        ))}
+      <select className="select" name="category_id">
+        {data &&
+          data.map(department => (
+            <option value={department.id} key={department.id}>
+              {department.name}
+            </option>
+          ))}
       </select>
     );
   }

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import Eshoplogo from "./img/e-shop(logo).svg";
 import Person from "./img/Person.svg";
-import Heart from "./img/l.svg";
+import Heart from "./img/like.png";
 import Cart from "./img/pocket.svg";
 import "./header.css";
 
@@ -24,7 +24,7 @@ class Header extends React.Component {
   }
 
   render() {
-    let data = this.state.data.filter(item => item.active);
+    let data = this.state.data && this.state.data.filter(item => item.active);
 
     return (
       <header>
@@ -63,21 +63,53 @@ class Header extends React.Component {
               </Link>
             </div>
             <div className="departmentsLinks">
-              {data &&
-                data.map(item => (
-                  <Link className="header_link" to={`/department/${item.id}`} key={item.id}>
-                    {item.name}
-                  </Link>
-                ))}
+              {data && data.length > 0 ? (
+                data.map((item, index) =>
+                  index < 2 ? (
+                    <div className="header_link-block" key={item.id}>
+                      <Link
+                        className="header_link"
+                        to={`/department/${item.id}`}
+                      >
+                        {item.name}
+                      </Link>
+                    </div>
+                  ) : null
+                )
+              ) : (
+                <div className="departmentsLinks">
+                  <div className="header_link-block">
+                    <Link
+                      className="header_link"
+                      to={`/department/${1}`}
+                      key={1}
+                    >
+                      WOMEN
+                    </Link>
+                  </div>
+                  <div className="header_link-block">
+                    <Link
+                      className="header_link"
+                      to={`/department/${2}`}
+                      key={2}
+                    >
+                      MEN
+                    </Link>
+                  </div>
+                </div>
+              )}
             </div>
 
             <div className="col-5">
               <form action="#">
-                <input
-                  className="header_input"
-                  type="text"
-                  placeholder="Искать по запросу"
-                />
+                <Link to="/search">
+                  <input
+                    className="header_input"
+                    type="text"
+                    placeholder="Искать по запросу"
+                    onChange={e => this.props.search(e.target.value)}
+                  />
+                </Link>
               </form>
             </div>
 
@@ -85,11 +117,17 @@ class Header extends React.Component {
               <Link to="/" className="header_link">
                 <img src={Person} alt="logo" className="header_icons col-2" />
               </Link>
-              <Link to="/" className="header_link">
+              <Link to="/likes" className="header_link LikeLike">
                 <img src={Heart} alt="logo" className="header_icons col-2" />
               </Link>
-              <Link to="/cart" className="header_link">
+              <Link to="/basket" className="header_link countBasket">
                 <img src={Cart} alt="logo" className="header_icons col-2" />
+                <div>
+                  {localStorage.getItem("keys") &&
+                  JSON.parse(localStorage.getItem("keys")).length > 0
+                    ? JSON.parse(localStorage.getItem("keys")).length
+                    : null}
+                </div>
               </Link>
             </div>
           </div>

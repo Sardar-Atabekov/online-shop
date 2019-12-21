@@ -1,0 +1,195 @@
+.addProductContent {
+    background-color: #fff;
+    border: none;
+    border-radius: .625rem;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(90, 97, 105, .1),
+        0 0.9375rem 1.40625rem rgba(90, 97, 105, .1),
+        0 0.25rem 0.53125rem rgba(90, 97, 105, .12),
+        0 0.125rem 0.1875rem rgba(90, 97, 105, .1);
+    margin: 40px auto;
+    width: 704px;
+    position: relative;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+
+}
+
+.addProductContent .formBlock {
+
+    margin: 20px 1.5rem;
+}
+
+.addProductContent .form-row {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -5px;
+    margin-left: -5px;
+    width: 100%;
+}
+
+
+.addProductContent .form-row .form-group {
+    display: flex;
+    flex-direction: column;
+    width: 252px;
+    margin-bottom: 1rem;
+    height: 66px;
+    padding-right: 5px;
+    padding-left: 5px;
+    margin-left: 35px;
+}
+
+
+.addProductContent .form-row label {
+    margin-bottom: .5rem;
+}
+
+.adduser,
+.addmeal {
+    display: flex;
+    justify-content: flex-end;
+    text-align: center;
+}
+
+.adduser a,
+.addmeal a {
+    width: 80px;
+    height: 40px;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.addProductContent .form .form-control {
+    height: auto;
+    padding: .4375rem .75rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #e1e5eb;
+    font-weight: 300;
+    will-change: border-color, box-shadow;
+    border-radius: .25rem;
+    box-shadow: none;
+    transition: box-shadow 250ms cubic-bezier(.27, .01, .38, 1.06), border 250ms cubic-bezier(.27, .01, .38, 1.06);
+}
+
+.title-block {
+    margin-bottom: 1rem;
+    margin-left: 35px;
+}
+
+.addProductContent .form-title h6 {
+    margin: 0px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 400;
+    color: #3d5170;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.addProductContent .form-title .form-text {
+    margin: 0px;
+}
+
+
+
+.addProductContent .form-row .select,
+.addTable .select {
+    height: calc(2.09375rem + 2px);
+    padding: .375rem 1.75rem .375rem .75rem;
+    line-height: 1.5;
+    color: #495057;
+    background-size: 8px 10px;
+    border: 1px solid #e1e5eb;
+    font-weight: 300;
+    font-size: .8125rem;
+    transition: box-shadow 250ms cubic-bezier(.27, .01, .38, 1.06), border 250ms cubic-bezier(.27, .01, .38, 1.06);
+    border-radius: .25rem;
+}
+
+.addProductContent .form {
+    display: flex;
+    flex-flow: wrap;
+}
+
+.addProductContent .card-header {
+    overflow: hidden;
+    border-radius: .625rem .625rem 0 0;
+}
+
+.addProductContent .edit-user-details__bg {
+    width: 100%;
+    position: relative;
+    max-height: 7.1875rem;
+}
+
+.addProductContent .edit-user-details__bg img {
+    width: 802px;
+    height: 115px;
+}
+
+.addProductContent .text-center {
+    text-align: center !important;
+    width: 100%;
+    margin-left: 67px;
+    margin-bottom: 1.5rem !important;
+}
+
+.addProductContent .commentBlock textarea {
+    margin-top: 20px;
+    width: 370px;
+    height: 70px !important;
+
+}
+
+.addProductContent .commentBlock {
+    margin-left: 40px;
+}
+
+.addProductContent .btn {
+    font-weight: 400;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    border: 1px solid transparent;
+    padding: .5625rem 1rem;
+    font-size: .75rem;
+    line-height: 1.125;
+    border-radius: .25rem;
+    transition: all 250ms cubic-bezier(.27, .01, .38, 1.06);
+}
+
+.addProductContent .btnSumbit {
+    background: green;
+    color: white;
+    font-weight: 500;
+    font-size: .6875rem;
+    padding: 0 40px;
+    border-radius: .25rem;
+    height: 30px;
+    margin-left: 200px;
+    margin-top: 80px;
+}
+
+.smallGroup {
+    width: 160px !important;
+    margin-left: 45px !important;
+}
+
+.smallGroup select {
+    width: 100px !important;
+    padding-right: 5px !important;
+}
+.addImage {
+    width: 83.5% !important;
+    height: 25% !important;
+}
+
+.addImage .form-control {
+    margin-bottom: 15px;
+}

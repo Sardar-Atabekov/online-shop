@@ -1,0 +1,95 @@
+.categoriesContent .listItem {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 40px;
+}
+
+.categoriesContent .listItem .item {
+    display: flex;
+    width: 300px;
+    margin: 30px 50px;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 0 rgba(90, 97, 105, .11), 0 4px 8px rgba(90, 97, 105, .12), 0 10px 10px rgba(90, 97, 105, .06), 0 7px 70px rgba(90, 97, 105, .1);
+    border-radius: .625rem;
+
+}
+
+.tablesContent .listItem .item {
+    box-shadow: 0 2px 0 rgba(90, 97, 105, .11), 0 4px 8px rgba(90, 97, 105, .12), 0 10px 10px rgba(90, 97, 105, .06), 0 7px 70px rgba(90, 97, 105, .1);
+    border-radius: .625rem;
+}
+
+.tablesContent .listItem .item .input {
+    width: 69.5%;
+}
+
+.categoriesContent .listItem .item img {
+    height: 250px;
+    width: 100%;
+    border-radius: .25rem;
+
+}
+
+.categoriesContent .listItem .input {
+    padding-left: 15px;
+    border: 1px solid #e1e5eb;
+    width: 58%;
+}
+
+
+.categoriesContent .listItem .changeBtn,
+.categoriesContent .listItem .deleteBtn,
+.addCategoryBtn {
+    background: green;
+    width: 50%;
+    border: 1px solid #e1e5eb;
+    height: 35.5px !important;
+    color: white;
+    border-radius: .25rem;
+
+}
+
+.categoriesContent .listItem .deleteBtn {
+    background: red;
+    width: 50%;
+}
+
+.addCategoryBtn {
+    width: 120px !important;
+}
+
+.categoriesContent .addCategories {
+    margin: 30px 87px;
+    display: flex;
+}
+
+.categoriesContent .addCategory {
+    padding-left: 15px;
+    border: 1px solid #e1e5eb;
+    height: 31.5px !important;
+    border-radius: .25rem;
+    color: black;
+
+}
+
+.selectDepartment {
+    margin-left: auto;
+}
+
+.departmentSelect {
+    padding-right: 10px;
+    padding-left: 9px;
+}
+
+.active {
+    padding-right: 14px;
+}
+
+.imageInput {
+    width: 62.5% !important;
+}
+
+.imageUrl {
+    width: 100% !important;
+    height: 35.5px;
+}

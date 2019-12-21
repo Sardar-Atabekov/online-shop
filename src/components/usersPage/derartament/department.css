@@ -1,0 +1,71 @@
+.containerUsers {
+    display: flex;
+    flex-direction: column;
+}
+
+.seasonsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.seasons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto 1%;
+}
+
+.season {
+    margin: 0 17.2px;
+    flex: 0 0 31%;
+    display: flex;
+    flex-direction: column;
+    border-radius: .25rem;
+}
+
+.season .card-img-top {
+    width: 100%;
+}
+
+.card-img-top {
+    widows: 100%;
+}
+
+.seasons_title {
+    flex: 0 0 100%;
+    max-width: 100%;
+    font-size: 24px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.seasons_text_block {
+    background: #000000;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    padding-bottom: 15px;
+}
+
+.catalog_text {
+    color: black;
+}
+
+.seasons-see {
+    text-align: center;
+}
+
+.seasons-btn {
+    margin: 0 auto;
+    font-weight: bold;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    font-size: 1rem;
+    border: none;
+    padding: 10px;
+    color: #fff;
+    font-family: "arial";
+    background-color: #000;
+    border-radius: .25rem;
+}

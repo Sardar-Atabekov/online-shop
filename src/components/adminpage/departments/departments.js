@@ -4,13 +4,15 @@ import Navigation from "../navigation/navigation";
 import Search from "../search/search.js";
 import Footer from "../footer/footer.js";
 import "./departments.css";
+import Loading from "../../loading/loading";
 
 class Departments extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: [],
-      realData: []
+      realData: [],
+      isLoading: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -42,12 +44,12 @@ class Departments extends Component {
 
   async componentDidMount() {
     getData("/category/all").then(data => {
-      this.setState({ data });
+      this.setState({ data, isLoading: true });
     });
   }
 
   render() {
-    let data =this.state.data;
+    let { data } = this.state;
     return (
       <div className="wrapper">
         <aside className="navBlock">
@@ -57,50 +59,60 @@ class Departments extends Component {
           <header className="main-search">
             <Search />
           </header>
-          <main className="departments">
-            <form onSubmit={this.handleSubmit} className="addDepartments">
-              <input type="text" name="name" className="add" />
-              <select className="select" name="active">
-                <option value="true">Есть</option>
-                <option value="false">Скрыта</option>
-              </select>
-              <button className="changeBtn">Добавить</button>
-            </form>
+          {this.state.isLoading ? (
+            <main className="departments">
+              <form onSubmit={this.handleSubmit} className="addDepartments">
+                <input type="text" name="name" className="add" />
+                <select className="select" name="active">
+                  <option value="true">Есть</option>
+                  <option value="false">Скрыта</option>
+                </select>
+                <button className="changeBtn">Добавить</button>
+              </form>
 
-            <div className="listItem">
-              {data.map(item => (
-                <div className="item" key={item.id}>
-                  <input type="text" className="add" defaultValue={item.name} />
-                  <select
-                    className="select"
-                    name="active"
-                    defaultValue={item.active}
-                  >
-                    <option value="true">Есть</option>
-                    <option value="false">Скрыта</option>
-                  </select>
+              <div className="listItem">
+                {data &&
+                  data.length > 0 &&
+                  data.map(item => (
+                    <div className="item" key={item.id}>
+                      <input
+                        type="text"
+                        className="add"
+                        defaultValue={item.name}
+                      />
+                      <select
+                        className="select"
+                        name="active"
+                        defaultValue={item.active}
+                      >
+                        <option value="true">Есть</option>
+                        <option value="false">Скрыта</option>
+                      </select>
 
-                  <input
-                    type="button"
-                    id={item.id}
-                    className="changeBtn"
-                    onClick={this.changeTableClick}
-                    value="Изменить"
-                  />
+                      <input
+                        type="button"
+                        id={item.id}
+                        className="changeBtn"
+                        onClick={this.changeTableClick}
+                        value="Изменить"
+                      />
 
-                  <input
-                    type="button"
-                    className="deleteBtn"
-                    onClick={event => {
-                      deleteData(`/category/${item.id}`);
-                      event.target.parentNode.remove();
-                    }}
-                    value="Удалить"
-                  />
-                </div>
-              ))}
-            </div>
-          </main>
+                      <input
+                        type="button"
+                        className="deleteBtn"
+                        onClick={event => {
+                          deleteData(`/category/${item.id}`);
+                          event.target.parentNode.remove();
+                        }}
+                        value="Удалить"
+                      />
+                    </div>
+                  ))}
+              </div>
+            </main>
+          ) : (
+            <Loading />
+          )}
           <footer className="main-footer">
             <Footer />
           </footer>

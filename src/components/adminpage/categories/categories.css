@@ -55,7 +55,7 @@
 }
 
 .addCategoryBtn {
-    width: 120px;
+    width: 120px !important;
 }
 
 .categoriesContent .addCategories {
@@ -80,10 +80,16 @@
     padding-right: 10px;
     padding-left: 9px;
 }
+
 .active {
     padding-right: 14px;
 }
+
 .imageInput {
     width: 62.5% !important;
 }
 
+.imageUrl {
+    width: 100% !important;
+    height: 35.5px;
+}

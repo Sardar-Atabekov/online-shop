@@ -4,10 +4,11 @@
   background:url("./img/bacground.jpg")no-repeat  ;
   background-size:cover;
   margin: 0 auto;
+  padding-bottom: 30px;
 }
 
 .catalog_items_wrapper {
-  width: 90%;
+  width: 99%;
 }
 .catalog_img{
   width: 100%;
@@ -28,7 +29,7 @@
   display: flex;
   flex-direction: column;
   width: 210px;
-  height: 280px;
+  height: 300px;
 }
 .catalog_text_block{
   background-color: #fff;
@@ -52,33 +53,6 @@ font-family:"arial";
 .containerUsers {
   display: flex;
   flex-direction: column;
-}
-.seasons_title{
-  margin-top: 0;
-  margin-bottom: 2%;
-  text-transform: uppercase;
-
-}
-.seasons_text_block{
-  background-color: #000;
-}
-.seasons_text{
-  color: #fff;
-  font-weight: bold;
-  text-transform: uppercase;
-    font-size: 1rem;
-font-family:"arial";
-
-}
-.seasons-btn{
-  margin: 0 auto;
-  font-weight: bold;
-  margin-bottom: 2%;
-  margin-top: 2%;
-   font-size: 1rem;
-font-family:"arial";
-background-color: #000;
-
 }
 
 .col-11 {

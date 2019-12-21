@@ -6,6 +6,7 @@ import Footer from "../footer/footer.js";
 import Category from "./addCategory";
 
 import "./categories.css";
+import Loading from "../../loading/loading";
 
 class Categories extends Component {
   constructor(props) {
@@ -13,21 +14,21 @@ class Categories extends Component {
     this.state = {
       body: [],
       data: [],
-      dp: []
+      dp: [],
+      isLoading: false
     };
 
     this.changeSelectDepartment = this.changeSelectDepartment.bind(this);
   }
 
-  changeCategoryClick(event) {
-    let id = event.target.getAttribute("id"),
-      data = {
-        id,
-        active: event.target.parentNode.childNodes[2].value,
-        name: event.target.parentNode.childNodes[1].value,
-        category_id: event.target.previousSibling.value,
-        image: event.target.parentNode.childNodes[3].value
-      };
+  changeCategoryClick(event, id) {
+    let data = {
+      id,
+      active: event.target.parentNode.childNodes[2].value,
+      name: event.target.parentNode.childNodes[1].value,
+      category_id: event.target.previousSibling.value,
+      image: event.target.parentNode.childNodes[3].value
+    };
 
     console.log(data);
     putData(`/subCategory/${data.id}`, data);
@@ -36,18 +37,23 @@ class Categories extends Component {
   changeSelectDepartment(event) {
     let select = event.target.value,
       arr = this.state.body;
+    console.log(select);
+    console.log(arr);
     if (select === "all") {
       this.setState({ data: arr });
     } else {
-      arr = arr.filter(department => department.category_id === +select);
+      let arr1 = arr.filter(a => a.category_id === +select);
+      console.log(arr1);
       this.setState({
-        data: arr
+        data: arr1
       });
+      console.log(this.state.data);
     }
   }
   async componentDidMount() {
     getData("/subCategory/all/").then(body => {
-      this.setState({ body });
+      body = body.filter(a => !a.description);
+      this.setState({ body, isLoading: true });
     });
     getData("/category/all/").then(dp => {
       this.setState({ dp });
@@ -55,6 +61,7 @@ class Categories extends Component {
   }
 
   render() {
+    console.log(this.state);
     let data = this.state.data.length > 0 ? this.state.data : this.state.body;
     return (
       <div className="wrapper">
@@ -65,83 +72,90 @@ class Categories extends Component {
           <header className="main-search">
             <Search />
           </header>
-          <main className="categoriesContent">
-            <div className="addCategories">
-              <Category />
-              <div className="selectDepartment">
-                <label htmlFor="department">По департаментам: </label>
-                <select
-                  className="select"
-                  onChange={this.changeSelectDepartment}
-                  id="department"
-                >
-                  <option value="all">Все</option>
-                  {this.state.dp.map(department => (
-                    <option value={department.id} key={department.id}>
-                      {department.name}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
-            <div className="listItem">
-              {data.map(category => (
-                <form className="item" key={category.id}>
-                  <img src={category.image} alt={category.name} />
-                  <input
-                    type="text"
-                    className="input  imageInput"
-                    defaultValue={category.name}
-                  />
+          {this.state.isLoading ? (
+            <main className="categoriesContent">
+              <div className="addCategories">
+                <Category />
+                <div className="selectDepartment">
+                  <label htmlFor="department">По департаментам: </label>
                   <select
-                    className="select active"
-                    name="name"
-                    defaultValue={category.active}
+                    className="select"
+                    onChange={this.changeSelectDepartment}
+                    id="department"
                   >
-                    <option value="true">Есть</option>
-                    <option value="false">Скрыта</option>
-                  </select>
-                  <input
-                    name="image"
-                    type="text"
-                    className="input imageInput"
-                    defaultValue={category.image}
-                  />
-                  {this.state.dp.length > 0 ? (
-                    <select
-                      className="select departmentSelect"
-                      name="category_id"
-                      defaultValue={category.category_id}
-                    >
-                      {this.state.dp.map(department => (
+                    <option value="all">Все</option>
+                    {this.state.dp.length > 0 &&
+                      this.state.dp.map(department => (
                         <option value={department.id} key={department.id}>
                           {department.name}
                         </option>
                       ))}
-                    </select>
-                  ) : (
-                    ""
-                  )}
-                  <input
-                    type="button"
-                    id={category.id}
-                    className="changeBtn"
-                    onClick={this.changeCategoryClick}
-                    value="Изменить"
-                  />
-                  <input
-                    type="button"
-                    className="deleteBtn divDelete"
-                    value="Удалить"
-                    onClick={event => {
-                      deleteData(`/subCategory/${category.id}`);
-                      event.target.parentNode.remove();
-                    }}
-                  />
-                </form>
-              ))}
-            </div>
-          </main>
+                  </select>
+                </div>
+              </div>
+              <div className="listItem">
+                {data &&
+                  data.map(category => (
+                    <form className="item" key={category.id}>
+                      <img src={category.image} alt={category.name} />
+                      <input
+                        type="text"
+                        className="input  imageInput"
+                        defaultValue={category.name}
+                      />
+                      <select
+                        className="select active"
+                        name="name"
+                        defaultValue={category.active}
+                      >
+                        <option value="true">Есть</option>
+                        <option value="false">Скрыта</option>
+                      </select>
+                      <input
+                        name="image"
+                        type="text"
+                        className="input imageInput"
+                        defaultValue={category.image}
+                      />
+                      {this.state.dp.length > 0 ? (
+                        <select
+                          className="select departmentSelect"
+                          name="category_id"
+                          defaultValue={category.category_id}
+                        >
+                          {this.state.dp.map(department => (
+                            <option value={department.id} key={department.id}>
+                              {department.name}
+                            </option>
+                          ))}
+                        </select>
+                      ) : (
+                        ""
+                      )}
+                      <input
+                        type="button"
+                        className="changeBtn"
+                        onClick={event =>
+                          this.changeCategoryClick(event, category.id)
+                        }
+                        value="Изменить"
+                      />
+                      <input
+                        type="button"
+                        className="deleteBtn divDelete"
+                        value="Удалить"
+                        onClick={event => {
+                          deleteData(`/subCategory/${category.id}`);
+                          event.target.parentNode.remove();
+                        }}
+                      />
+                    </form>
+                  ))}
+              </div>
+            </main>
+          ) : (
+            <Loading />
+          )}
           <footer className="main-footer">
             <Footer />
           </footer>

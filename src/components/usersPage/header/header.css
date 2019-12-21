@@ -48,10 +48,15 @@
 }
 
 .header_link_block {
+  padding-right: 10px;
+}
 
+.departmentsLinks {
+  display: flex;
+}
+
+.header_link-block:nth-child(2) {
   border-left: 0.5px solid rgb(255, 255, 255, 0.5);
-
-
 }
 
 .header_input {
@@ -68,11 +73,13 @@
   height: 30px;
   padding-top: 15px;
 }
+
 .header_icons-container {
   display: flex;
   height: 60px;
-  
+
 }
+
 .container {
   text-align: center;
   margin: 0 auto;
@@ -101,5 +108,40 @@
 }
 
 .departmentsLinks a {
-  margin-left: 20px;
+  margin: 0 20px;
+}
+
+.countBasket {
+  display: flex;
+}
+
+.likesBasket {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.LikeBasketBlock {
+  border-radius: 50%;
+  width: 45px;
+  background: #e4e4e4;
+  height: 40px;
+  margin-top: 25px;
+  margin-right: 50px;
+  border-radius: 100px;
+  box-shadow: 0 0.46875rem 2.1875rem rgba(90, 97, 105, .1), 0 0.9375rem 1.40625rem rgba(90, 97, 105, .1), 0 0.25rem 0.53125rem rgba(90, 97, 105, .12), 0 0.125rem 0.1875rem rgba(90, 97, 105, .1);
+}
+
+.likesBasket .LikeImage {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+
+.LikeLike {
+  width: 30px;
+  height: 15px;
 }

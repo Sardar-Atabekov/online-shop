@@ -3,6 +3,7 @@
     width: 80%;
     margin: 40px auto;
     justify-content: space-between;
+    margin-bottom: 100px;
 }
 
 .productImages {
@@ -13,6 +14,7 @@
     width: 40%;
     text-align: center;
 }
+
 .product-title {
     margin: 0;
 }
@@ -21,44 +23,55 @@
     display: flex;
     flex-direction: column;
     margin-right: 20px;
+    margin-bottom: 20px;
 }
+
 .description {
-    width: 100%; 
+    width: 100%;
     padding: 10px;
-    font-size: 1.5em; 
-    word-wrap: break-word; 
+    font-size: 1.5em;
+    word-wrap: break-word;
 }
+
 .images img {
     width: 100px;
-    margin-top: 25px;
     cursor: pointer;
-    height: 80px;
+    height: 100px;
+    margin-bottom: 15px;
     border-radius: .625rem;
     box-shadow: 0 0.46875rem 2.1875rem rgba(90, 97, 105, .1), 0 0.9375rem 1.40625rem rgba(90, 97, 105, .1), 0 0.25rem 0.53125rem rgba(90, 97, 105, .12), 0 0.125rem 0.1875rem rgba(90, 97, 105, .1);
 }
 
 .mainImage img {
-    width: 100%;
-    height: 480px;
+    width: 440px;
+    height: 520px;
     border-radius: .625rem;
     box-shadow: 0 0.46875rem 2.1875rem rgba(90, 97, 105, .1), 0 0.9375rem 1.40625rem rgba(90, 97, 105, .1), 0 0.25rem 0.53125rem rgba(90, 97, 105, .12), 0 0.125rem 0.1875rem rgba(90, 97, 105, .1);
 }
 
 .price {
-    margin:0;
+    margin: 0;
 }
+
 .selects {
     display: flex;
     justify-content: center;
 }
-.select {
+
+.productPage .select {
     margin-left: 5px;
 }
+
 .form-group {
     margin-left: 20px;
     margin-top: 10px;
 }
-
+.likesBasket .Like {
+    margin-left: 230;
+}
+.LikeBasketBlock {
+    margin-left: 30px;
+}
 .addBasket {
     display: inline-block;
     font-weight: 400;
@@ -74,9 +87,12 @@
     border: 1px solid transparent;
     padding: .375rem .75rem;
     font-size: 1rem;
-    background-color: #343a40;
-    border-color: #343a40;
+    background-color: red;
+    border-color: #fff;
     line-height: 1.5;
+    width: 200px;
+    padding: 10px;
     border-radius: .25rem;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
+
