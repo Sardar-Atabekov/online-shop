@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { postData } from "../../requests";
-
+import ModalWindow from "./../../modalWindow/modalWindow";
 export default class RegisterOrder extends Component {
   constructor(props) {
     super(props);
@@ -10,7 +10,8 @@ export default class RegisterOrder extends Component {
       address: "",
       userEmail: "",
       total: this.props.total,
-      orderItems: this.props.data
+      orderItems: this.props.data,
+      statusModal: false
     };
   }
 
@@ -40,7 +41,7 @@ export default class RegisterOrder extends Component {
       ]
     };
     console.log(data);
-
+    this.setState({ statusModal: true });
     postData("/order/", data);
   };
 
@@ -81,6 +82,11 @@ export default class RegisterOrder extends Component {
             Оформить
           </button>
         </form>
+        {this.state.statusModal ? (
+          <ModalWindow
+            statusModal={() => this.setState({ statusModal: false })}
+          />
+        ) : null}
       </div>
     );
   }

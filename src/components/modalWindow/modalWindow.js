@@ -1,5 +1,4 @@
 import React from "react";
-import OK from "./../images/checked.svg";
 import "./modalWindow.css";
 
 export default class ModalWindow extends React.Component {
@@ -8,12 +7,7 @@ export default class ModalWindow extends React.Component {
     return (
       <div className="modalWrapper">
         <div className="modalWindow">
-          <h2>{this.props.message}</h2>
-          <img
-            src={OK}
-            alt={"Ok"}
-            onClick={() => this.props.statusModal(false)}
-          />
+          <h2>Ваш заказ принять!</h2>
         </div>
       </div>
     );

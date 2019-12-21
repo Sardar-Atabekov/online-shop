@@ -41,13 +41,22 @@
 .categoriesContent .listItem .deleteBtn,
 .addCategoryBtn {
     background: green;
-    width: 50%;
+    width: 100% !important;
     border: 1px solid #e1e5eb;
     height: 35.5px !important;
     color: white;
     border-radius: .25rem;
 
 }
+
+/* .categoriesContent .listItem .deleteBtn::after, .categoriesContent .listItem .deleteBtn::before {
+    box-sizing: border-box !important;
+}
+
+
+.categoriesContent .listItem .deleteBtn::after,  .categoriesContent .listItem .deleteBtn::before {
+    box-sizing: border-box !important;
+} */
 
 .categoriesContent .listItem .deleteBtn {
     background: red;
