@@ -83,17 +83,17 @@ export default class Product extends React.Component {
                 </div>
                 <div className="likesBasket">
                   <div className="LikeBasketBlock">
-                  <img
-                    src={this.state.like ? Like : noLike}
-                    alt={product.name}
-                    className="LikeImage"
-                    onClick={() => {
-                      this.state.like
-                        ? this.setState({ like: false })
-                        : this.setState({ like: true });
-                      AddLike(product.id);
-                    }}
-                  />
+                    <img
+                      src={this.state.like ? Like : noLike}
+                      alt={product.name}
+                      className="LikeImage"
+                      onClick={() => {
+                        this.state.like
+                          ? this.setState({ like: false })
+                          : this.setState({ like: true });
+                        AddLike(product.id);
+                      }}
+                    />
                   </div>
                   <button
                     className="addBasket"

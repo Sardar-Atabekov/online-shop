@@ -4,7 +4,7 @@ import { getData } from "../../requests.js";
 import Loading from "./../../loading/loading";
 import Header from "./../header/header";
 import Product from "./product";
-import Footer from "./../../footer/footer";
+// import Footer from "./../../footer/footer";
 import "./category.css";
 export default class CatalogPageComponent extends React.Component {
   constructor(props) {

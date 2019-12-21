@@ -102,11 +102,14 @@ class Header extends React.Component {
 
             <div className="col-5">
               <form action="#">
-                <input
-                  className="header_input"
-                  type="text"
-                  placeholder="Искать по запросу"
-                />
+                <Link to="/search">
+                  <input
+                    className="header_input"
+                    type="text"
+                    placeholder="Искать по запросу"
+                    onChange={e => this.props.search(e.target.value)}
+                  />
+                </Link>
               </form>
             </div>
 
@@ -114,7 +117,7 @@ class Header extends React.Component {
               <Link to="/" className="header_link">
                 <img src={Person} alt="logo" className="header_icons col-2" />
               </Link>
-              <Link to="/likes" className="header_link LikeLike" >
+              <Link to="/likes" className="header_link LikeLike">
                 <img src={Heart} alt="logo" className="header_icons col-2" />
               </Link>
               <Link to="/basket" className="header_link countBasket">
