@@ -30,7 +30,7 @@ class Header extends React.Component {
       <header>
         <div className="header_top">
           <div className="container">
-            <div className="offset-2">
+            <div className="offset-2q">
               <div>
                 <Link to={"/"} className="header_top_link">
                   О нас{" "}
@@ -48,7 +48,7 @@ class Header extends React.Component {
               </div>
             </div>
 
-            <div className="offset-2">
+            <div className="offset-2q">
               <div className="header_tel">+996 XXX XXX XXX</div>
               <div className="header_tel">+996 XXX XXX XXX</div>
             </div>
@@ -57,7 +57,7 @@ class Header extends React.Component {
 
         <div className="header">
           <div className="row">
-            <div className="col-2">
+            <div className="">
               <Link to="/" className="header_link">
                 <img src={Eshoplogo} alt="logo" className="header_logo" />
               </Link>
@@ -100,7 +100,7 @@ class Header extends React.Component {
               )}
             </div>
 
-            <div className="col-5">
+            <div className="Col5">
               <form action="#">
                 <Link to="/search">
                   <input
@@ -115,13 +115,13 @@ class Header extends React.Component {
 
             <div className="header_icons-container">
               <Link to="/" className="header_link">
-                <img src={Person} alt="logo" className="header_icons col-2" />
+                <img src={Person} alt="logo" className="header_icons " />
               </Link>
               <Link to="/likes" className="header_link LikeLike">
-                <img src={Heart} alt="logo" className="header_icons col-2" />
+                <img src={Heart} alt="logo" className="header_icons " />
               </Link>
               <Link to="/basket" className="header_link countBasket">
-                <img src={Cart} alt="logo" className="header_icons col-2" />
+                <img src={Cart} alt="logo" className="header_icons " />
                 <div>
                   {localStorage.getItem("keys") &&
                   JSON.parse(localStorage.getItem("keys")).length > 0

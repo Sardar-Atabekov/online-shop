@@ -66,6 +66,7 @@
   margin-top: 10px;
   border: none;
   padding-left: 20px;
+  outline: none;
 }
 
 .header_icons {
@@ -82,11 +83,11 @@
 
 .container {
   text-align: center;
-  margin: 0 auto;
-  max-width: 1600px;
+  margin: 0 auto !important;
+  max-width: 1600px !important;
   display: flex;
   justify-content: space-evenly;
-  padding: 5px;
+  padding: 5px !important;
 }
 
 .row {
@@ -95,24 +96,36 @@
   height: 60px;
 }
 
-.offset-2 {
+.offset-2q {
   display: flex;
   width: 25%;
   justify-content: space-evenly;
 }
 
-.col-5 {
+.Col5 {
   -ms-flex: 0 0 41.666667%;
   flex: 0 0 41.666667%;
   max-width: 41.666667%;
 }
 
+
+
 .departmentsLinks a {
   margin: 0 20px;
 }
 
+*,
+::after,
+::before {
+  box-sizing: content-box !important;
+}
+
 .countBasket {
   display: flex;
+}
+
+img {
+  vertical-align: baseline !important;
 }
 
 .likesBasket {
