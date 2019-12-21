@@ -81,6 +81,7 @@ const Search = () => {
   useEffect(() => {
     searchItem();
   }, [name]);
+  
   const searchItem = () => {
     getData(`/product/search/${name}`).then(res => {
       const searchtData = res;

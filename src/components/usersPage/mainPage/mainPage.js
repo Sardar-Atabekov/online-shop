@@ -2,7 +2,7 @@ import Header from "../header/header";
 // import Slider from "./sliders/mainSlider";
 // import Blocks from "./blocks/blocks";
 import React, { useState, useEffect } from "react";
-import Slider from "./sliders/mainSlider";
+// import Slider from "./sliders/mainSlider";
 import { UncontrolledCarousel } from "reactstrap";
 // import "./mainPage.css";
 // import Footer from "../../footer/footer";

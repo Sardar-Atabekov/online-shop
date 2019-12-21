@@ -59,3 +59,7 @@
 .slider_wrapper {
     margin-bottom: 30px;
 }
+
+.deleteInLikes {
+    height: 10px !important;
+}
