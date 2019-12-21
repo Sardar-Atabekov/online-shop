@@ -71,7 +71,6 @@ export default class CatalogPageComponent extends React.Component {
                   <Product product={product} key={product.id} />
                 ))}
             </div>
-            <Footer />
           </div>
         ) : (
           <Loading />

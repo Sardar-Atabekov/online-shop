@@ -114,7 +114,7 @@ class Header extends React.Component {
               <Link to="/" className="header_link">
                 <img src={Person} alt="logo" className="header_icons col-2" />
               </Link>
-              <Link to="/" className="header_link">
+              <Link to="/likes" className="header_link">
                 <img src={Heart} alt="logo" className="header_icons col-2" />
               </Link>
               <Link to="/basket" className="header_link">

@@ -120,12 +120,17 @@
     margin-left: 1000px;
     position: fixed;
     border-radius: .625rem;
+    display: flex;
+    width: 300px;
+    flex-direction: column;
+    margin-top: 70px;
 }
 
 .titleTotal {
     font-size: 12px;
     margin-top: 3px;
     font-weight: 500;
+    width: 270px;
 }
 
 .priceBasket {
@@ -160,24 +165,26 @@
 
 .madeOrderBasketButton {
     background-color: black;
-    color:white;
+    color: white;
     height: 30px;
     width: 150px;
     font-size: 15px;
     border: 0;
     border-radius: 20px;
 }
+
 .madeOrderBasketButton:hover {
     background-color: palegreen;
     color: black;
     border: 2px solid black;
 }
 
-.mainFormRegisterOrder{
+.mainFormRegisterOrder {
     padding-left: 120px;
     padding-top: 30px;
 }
-.headerFormRegisterOrder{
+
+.headerFormRegisterOrder {
     background: black;
     color: #fff;
     background: #000;
@@ -189,7 +196,8 @@
     display: flex;
     justify-content: center;
 }
-.formRegisterOrder{
+
+.formRegisterOrder {
     display: flex;
     justify-content: center;
     /* border: 2px ridge greenyellow; */
@@ -200,19 +208,22 @@
     box-shadow: 0 0.46875rem 2.1875rem rgba(90, 97, 105, .1), 0 0.9375rem 1.40625rem rgba(90, 97, 105, .1), 0 0.25rem 0.53125rem rgba(90, 97, 105, .12), 0 0.125rem 0.1875rem rgba(90, 97, 105, .1);
     padding: 20px 0 30px 0;
 }
+
 .formRegisterOrder input {
     font-size: 26px;
 }
-.formRegisterOrder button{
+
+.formRegisterOrder button {
     background-color: black;
-    color:white;
+    color: white;
     height: 35px;
     width: 160px;
     font-size: 18px;
     border: 0;
     border-radius: 20px;
 }
-.formRegisterOrder button:hover{
+
+.formRegisterOrder button:hover {
     background-color: palegreen;
     color: black;
     border: 2px solid black;

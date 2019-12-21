@@ -3,6 +3,7 @@ import NotFound from "./components/404/404";
 import Login from "./components/loginpage/login";
 import { Route, Switch } from "react-router-dom";
 import Basket from "./components/usersPage/basket/basket";
+import Likes from "./components/usersPage/likePage/Likes";
 import Product from "./components/usersPage/product/products";
 import Category from "./components/usersPage/category/category";
 import Products from "./components/adminpage/products/products";
@@ -32,6 +33,7 @@ class App extends Component {
           <Route exact path="/category/:id" component={Category} />
           <Route exact path="/product/:id" component={Product} />
           <Route exact path="/basket/" component={Basket} />
+          <Route exact path="/Likes/" component={Likes} />
           <Route exact path="*" component={NotFound} />
         </Switch>
       </React.Fragment>

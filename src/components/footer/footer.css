@@ -59,3 +59,7 @@
 .footer .offset-5 div {
   margin-bottom: 10px;
 }
+
+.footer-bottom {
+  margin-top: auto;
+}

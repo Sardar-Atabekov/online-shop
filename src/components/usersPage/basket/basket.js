@@ -41,12 +41,12 @@ export default class CatalogPageComponent extends React.Component {
 
   deleteInBasket(id) {
     let { data } = this.state;
+    console.log(data);
     data = data.filter(item => item.id !== +id);
     let keys = JSON.parse(localStorage.getItem("keys"));
     keys = keys.filter(a => a !== id);
     console.log(keys);
-    localStorage.removeItem("keys");
-    localStorage.getItem("keys", JSON.stringify(keys));
+    localStorage.setItem("keys", JSON.stringify(keys));
     console.log(data);
     this.setState({ data });
     this.setState({ message: "Корзина пуста" });
