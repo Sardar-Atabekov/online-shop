@@ -50,7 +50,6 @@ class Departments extends Component {
                   data.subCategories.map((item, index) =>
                     index < 9 && !item.description ? (
                       <Link to={`/category/${item.id}`} key={item.id}>
-                        {console.log(index)}
                         <div className="catalog_block col-11">
                           <img
                             className="catalog_img"
